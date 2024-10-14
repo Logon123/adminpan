@@ -1,0 +1,461 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* https://www.youtube.com/watch?v=8ZnB2jYlGl0&list=PLs_t_Fvl4Wjhwl6kjE4VeYFQ5mU6GJv3Y  video for learning purpose*/
+:root{
+
+    --clr-primary: #7380ec; 
+    --clr-danger: #ff7782;
+    --clr-success:#41f1b6;
+    --clr-white: #fff;
+    --clr-info-dark: #7d8da1;
+    --clr-info-light:#dce1eb;
+    --clr-dark:#363949;
+    --clr-warnig:#ff4edc;
+    --clr-light:rgba(132,139,200,0.18);
+    --clr-primary-variant:#111e88;
+    --clr-dark-variant:#677483;
+    --clr-color-background:#f6f6f9;
+
+    --card-border-radius:2rem;
+    --border-radius-1:0.4rem;
+    --border-radius-2:0.8rem;
+    --border-radius-3:1.2rem;
+
+    --cad-padding:1.8rem;
+    --padding-1:1.2rem;
+    --box-shadow:0.2rem 3rem var(--clr-light);
+}
+
+body{
+    font-family: 'poppins, sans-serif';
+    width: 100vw;
+    height: 100vh;
+    font-size: 0.88rem;
+    user-select: none;
+    overflow-x: hidden;
+    background: var(--clr-color-background);
+}
+
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: 0;
+    list-style: none;
+    appearance: none;
+} */
+
+.container{
+    display: grid;
+    width: 96%;
+    gap: .5rem;
+    grid-template-columns: 14rem auto 14rem;
+    margin: 0;
+    background-color: #111e88;
+    color: #e0e0e0; 
+}
+
+.container1{
+    
+    width: 96%;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto 14rem;
+    margin: 0 auto;
+    /* background-color: #111e88; */
+    color: #131111; 
+}
+
+.inf{
+    display: flex;
+  height: 100%;
+  /* display: inline-block; */
+  /* margin-top: 15px; */
+  /* margin-left: 30px; */
+}
+
+a{
+    color:var(--clr-dark);
+}
+
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2{
+    font-size: 1.4rem;    
+}
+
+h3{
+    font-size: 0.87rem;    
+  }
+
+h4{
+    font-size: 0.7rem;    
+    }
+h5{
+    font-size: 0.77rem;    
+    }
+small{
+    font-size: 0.75rem;
+}
+
+.text-muted{
+color: var(--clr-info-dark);
+}
+
+p{
+color:var(--clr-dark-variant);
+}
+
+b{
+color: var(--clr-dark);
+}
+.primary{
+color: var(--clr-primary);
+}
+.success{
+color: var(--clr-success);
+}
+.danger{
+color:var(--clr-danger);
+}
+.warning{
+color: var(--clr-warnig);
+}
+
+/*  Aside*/
+
+.aside{
+    height:100vh;
+}
+
+.aside .top{
+    background-color: var(--clr-white);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1.0rem;
+    margin-left:-30px;
+} 
+.aside .top div .close{
+    display: none;
+}
+
+.logo {
+    flex-grow: 1; /* Allow the logo to take available space */
+    text-align: center; /* Center text within logo */
+    
+}
+.sidebar1 {
+    display: flex; 
+    flex-direction: row; 
+    overflow-x: auto; 
+    background-color: #111e88;
+    padding: 5px; 
+    
+}
+
+.sidebar1 a {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack icon and text vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 5px; /* Add padding around links */
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Text color */
+    border-radius: 5px; /* Round the corners */
+    transition: background-color 0.3s; /* Smooth background change */
+    margin-right: 10px; /* Space between items */
+    
+}
+.sidebar1 a .active{
+    background-color: var(--clr-light);
+    color: var(--clr-primary);
+    margin-left: 10px;
+    border-top:5px solid blue;
+}
+.sidebar1 a .active span{
+    margin-left:1rem;
+    transition: .4 ease-in;
+}   
+.sidebar1 a:hover {
+    background-color: #636e7c; /* Change background on hover */
+    
+}
+
+.sidebar1 .material-icons {
+    margin-right: 5px; /* Space between icon and text */
+    color: white;
+    margin-left:25px;
+    margin-top: 5px;
+}
+
+.sidebar1 .text {
+    line-height: 1; /* Reduce space around the text */
+    margin: 0; /* Remove default margin */
+    color: white;
+    margin-left:25px;
+    margin-top: 5px;
+}
+
+.div-right {
+    display: flex;
+    align-items: left;
+    /* justify-content: flex-end; Align to the right */
+    padding: 10px; /* Add some padding */
+    margin-right: 0px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    position: relative; /* For dropdown positioning */
+}
+
+.profile-image {
+    width: 50px; /* Set width */
+    height: 50px; /* Set height */
+    border-radius: 50%; /* Make it a circle */
+    margin-right: 10px; /* Space between image and text */
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+}
+
+.name {
+    color: #fff; /* Name color */
+    font-weight: bold; /* Make the name bold */
+}
+
+.dropdown {
+    position: relative; /* Positioning for dropdown */
+}
+
+.dropbtn {
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+    color: white; /* Button text color */
+    cursor: pointer; /* Change cursor on hover */
+}
+
+.dropdown-content {
+    display: none; /* Hide by default */
+    position: absolute; /* Absolute positioning */
+    background-color: #111e88; /* Dropdown background color */
+    min-width: 100px; /* Set min width */
+    z-index: 1; /* Ensure it appears above other content */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Show on hover */
+}
+
+.dropdown-content a {
+    color: white; /* Link color */
+    padding: 10px; /* Padding for links */
+    text-decoration: none; /* No underline */
+    display: block; /* Block display */
+}
+
+.dropdown-content a:hover {
+    background-color: #575757; /* Background on hover */
+}
+
+.toggle-button {
+    display: none; /* Hidden by default */
+    cursor: pointer; /* Change cursor to pointer */
+    float:right !important;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    
+    .container {
+        grid-template-columns: 1fr; /* Stack elements on small screens */
+    }
+
+    .toggle-button {
+        display: block; /* Show the button on mobile */
+        margin-top:-70px;
+        margin-right:15px;
+    }
+    .sidebar1 {
+        flex-direction: column; /* Stack sidebar items vertically */
+        overflow-y: auto; /* Allow vertical scrolling */
+        padding: 0; 
+        display: none;
+    }
+
+    .sidebar1.active {
+        display: block; /* Show sidebar when active */
+    }
+
+    .sidebar1 a {
+        margin: 5px 0; /* Space between items */
+    }
+
+    .div-right {
+        justify-content: center;
+        display: flex;
+        padding: 10px; 
+    }
+    aside {
+        width: 100%;
+        position: relative;
+    }
+    .profile {
+        flex-direction: column;
+    }
+    .dropdown-content {
+        position: absolute;
+        right: 0;
+        width: 100%;
+        background-color: white;
+        display: none;
+    }
+    .logo{
+        height: auto;
+        widht:100px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem; 
+    }
+
+    .profile-image {
+        width: 40px; 
+        height: 40px; 
+    }
+
+    .name {
+        font-size: 0.9rem; /* Adjust name size */
+    }
+}
+
+.toggle-button {
+    cursor: pointer;
+}
+
+/*--Main  */
+main{
+    margin-top: 1.0rem;
+    /* width: auto; */
+}
+main input{
+    background-color: transparent;
+    border: 0;
+    outline:0;
+    color:var(--clr-dark);
+}
+
+main .date{
+display: inline-block;
+background-color: white;
+border-radius: var(--border-radius-1);
+margin-top: 1rem;
+padding: 0.5rem, 1.6rem;
+}
+
+main .insight{
+display: grid;
+grid-template-columns: auto auto auto;
+gap: 1.6rem;
+}
+
+main .insight>div{
+    background-color: var(--clr-primary);
+    padding: var(--padding-1);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: all .3 ease;
+}
+/* 
+.sales {
+    display: flex; /* Optional: if you want to align items in the sales box */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* text-align: center; Center text for a better look 
+} */
+
+.sales-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px; /* Adds space between columns */
+}
+
+.sales-column {
+    flex: 1; /* Adjusts the columns to take equal space */
+    padding: 20px; /* Adds padding for better spacing */
+    text-align: center; /* Centers the text */
+    background-color: #f9f9f9; /* Optional: adds a background color */
+    border-radius: 5px; /* Optional: adds rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow */
+}
+
+.third {
+    /* display: flex;  */
+    /*justify-content: center;  Center the content */
+    padding: 10px; /* Adds padding for better spacing */
+    /* background-color: #dacbcb; Background color */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow */
+    width: auto;
+    
+}
+
+.icon-column {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
+}
+
+.icon-text {
+    display: flex; /* Use flexbox to align icon and text */
+    align-items: center; /* Center items vertically */
+    border: 2px solid lightblue; 2px /* border with light blue color */
+    padding: 5px; /* Adds padding to the text */
+    background-color: #f0f0f0; /* Background color for each item */
+    margin: 5px 0; /* Adds vertical spacing between items */
+    width: 100%; /* Ensures it takes the full width */
+}
+
+.icon-text h3,
+.icon-text h5 {
+    margin-left: 5px; /* Adds space between icon and text */
+    margin: 0; /* Removes default margin */
+}
+
+.recent_orders{
+    padding: 10px;
+    margin-left:20px;
+    margin-top: 0px;
+}
+.typ{
+    padding: 5px;
+    /* border: 2px solid rgb(161, 165, 165); */
+    margin-left: 10px;
+    border-radius: 10%;
+}
+.typ th{
+    border: 0px 1px solid;
+    font-size: 18px;
+    margin-left: 10px;
+}
+.typ td{
+    border: 1px solid rgb(223, 217, 223);
+    padding: 20px;
+    font-weight: 600;
+    
+    align-items:center;
+}
+.typ td i {
+    margin-right: 10px; /* Add space between icon and text */
+}
