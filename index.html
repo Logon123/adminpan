@@ -104,7 +104,7 @@
             <div class="sales-row col-lg-12">
                 <div class="sales-column col-md-4">
                     <h3>Gross Sales</h3>
-                    <h1> Rs 24550</h1>
+                    <h1>Rs 24,550</h1>
                     <small>Last 24 Hours</small>
                 </div>
                 <div class="sales-column col-md-4">
@@ -112,15 +112,35 @@
                     <h1>No. 511</h1>
                     <small>Last 24 Hours</small>
                 </div>
-
-                <div class="third col-md-4">
-                    <div class="icon-column">
-                        <div class="icon-text">
-                            <span class="material-icons" style="color: blue;">payment</span>
-                            <h4>Transfer </h4>
-                            <h5> Rs 31825</h5>
+                <div class="sales-column col-md-4 icon-text">
+                    <div class="columns-sm-1">
+                        <span class="material-icons" style="color: blue;">attach_money</span>
+                        <div class="details">
+                            <span>Transfer &nbsp; Rs 31,825</span>
                         </div>
-                        <div class="icon-text">
+                    </div>
+                    <div class="columns-sm-1">
+                        <span class="material-icons" style="color: blue;">attach_money</span>
+                        <div class="details">
+                            <span>Take a Payment</span>
+                        </div>
+                    </div>
+                    <div class="columns-sm-1">
+                        <span class="material-icons" style="color: blue;">receipt</span>
+                        <div class="details">
+                            <span>Send an Invoice</span>
+                        </div>
+                    </div>
+                    <div class="columns-sm-1">
+                        <span class="material-icons" style="color: blue;">assessment</span>
+                        <div class="details">
+                            <span>Create an Estimate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- <div class="icon-text">
                             <span class="material-icons" style="color: blue;">attach_money</span>
                             <h4>Take a Payment</h4>
                         </div>
@@ -131,7 +151,7 @@
                         <div class="icon-text">
                             <span class="material-icons" style="color: blue;">assessment</span>
                             <h4>Create an Estimate</h4>
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>
@@ -141,11 +161,11 @@
 
     </div>
     <!-- End Insight-->
-    <div class="container2">
+    <div class="container2 col-lg-12">
         <!-- Start Payment Type-->
-        <!-- <div class="recent_orders">
+        <div class="recent_orders col-md-4">
             <h1 class="primary">Payment Method</h1>
-        </div>
+        
         <table class="typ">
             <thead>
                 <tr>
@@ -167,10 +187,42 @@
                     <td>Rs 7041</td>
                 </tr>
             </tbody>
-        </table> -->
-
+        </table>
     </div>
+        <div class="pie-chart col-md-4">
+            <canvas id="paymentPieChart"></canvas>
+            <div class="color-legend">
+                <ul>
+                    <li><span class="color-box" style="background-color: green;"></span> Card (Green)</li>
+                    <li><span class="color-box" style="background-color: blue;"></span> Cash (Blue)</li>
+                    <li><span class="color-box" style="background-color: orange;"></span> Other (Orange)</li>
+                </ul>
+            </div>
+        </div>
+        <div class=" last col-md-4">
+            <h1><strong>Last 30 Days</strong></h1>
+            <table class="tbl">
+                <thead>
+                    <tr>
+                        <th> Types: </th>
+                        <th> Value: </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="fas fa-user-circle" style="color: green;"></i> Total Customer</td>
+                        <td>363</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-user-alt" style="color: green;"></i> New Customer</td>
+                        <td>  261</td>
+                    </tr>
+                    </tbody></table>
+        </div>
+    </div>
+</div>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Drop Down Start
         document.querySelector('.dropbtn').addEventListener('click', function () {
@@ -223,6 +275,44 @@
             const sidebar = document.querySelector('.sidebar-container');
             sidebar.classList.toggle('active');
         });
+
+// Get the canvas element for the pie chart
+var ctx = document.getElementById('paymentPieChart').getContext('2d');
+
+// Data for the pie chart
+var data = {
+    labels: ['Card', 'Cash', 'Other'],
+    datasets: [{
+        data: [21545, 6841, 7041],
+        backgroundColor: ['green', 'blue', 'orange'],
+        borderColor: ['white', 'white', 'white'],
+        borderWidth: 2
+    }]
+};
+
+// Options for the pie chart
+var options = {
+    responsive: true,
+    plugins: {
+        legend: {
+            position: 'top',
+        },
+        tooltip: {
+            callbacks: {
+                label: function(tooltipItem) {
+                    return tooltipItem.label + ': Rs ' + tooltipItem.raw;
+                }
+            }
+        }
+    }
+};
+
+// Create the pie chart
+var myPieChart = new Chart(ctx, {
+    type: 'pie',
+    data: data,
+    options: options
+});
 
     </script>
 
