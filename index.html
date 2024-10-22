@@ -12,7 +12,7 @@
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -34,12 +34,12 @@
         <main>
             <!-- Side bar-->
             <div class="sidebar1 data-toggle=collapse">
-                <a href="#">
+                <a href="index.html">
                     <span class="material-icons active">home</span>
                     <span class="text">Home</span>
                 </a>
 
-                <a href="#">
+                <a href="report.html">
                     <span class="material-icons">report_gmailerrorred</span>
                     <span class="text">Report</span>
                 </a>
@@ -81,13 +81,13 @@
         <!--Div Right Start-->
         <div class="div-right">
             <div class="profile">
-                <img src="img/profile-.png" alt="Profile Picture" class="profile-image" />
+                <img src="img/profile-.png" alt="Profile Picture" class="profile-image" onclick="toggleDropdown()" />
                 <div class="profile-info">
                     <span class="name">Yogesh Kumar</span>
                     <div class="dropdown">
-                        <button class="dropbtn">▼</button>
-                        <div class="dropdown-content">
-                            <a href="#">Profile</a>
+                        <div class="dropdown-content" id="dropdown">
+                            <span class="dropdown-name">Yogesh Kumar - Admin</span>
+                            <a href="#">Profile Settings</a>
                             <a href="#">Logout</a>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
     <div class="container1 data-toggle=collapse">
         <!--Start Section 1 Columns -->
         <div class="insight">
-            <h1 style="align-items: center;">Welcome back. Here's your business at a glance.</h1>
+            <h1 class="ttx">Empower Your Management","Streamline Your Control" Here's your business at a glance.</h1>
             <div class="sales-row col-lg-12">
                 <div class="sales-column col-md-4">
                     <h3>Gross Sales</h3>
@@ -163,8 +163,8 @@
     <!-- End Insight-->
     <div class="container2 col-lg-12">
         <!-- Start Payment Type-->
-        <div class="recent_orders col-md-4">
-            <h1 class="primary">Payment Method</h1>
+        <div class=" col-md-4">
+            <h2 class="primary">Payment Method</h2>
         
         <table class="typ">
             <thead>
@@ -247,100 +247,61 @@
     </div>
 </div>
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <script>
-        // Drop Down Start
-        document.querySelector('.dropbtn').addEventListener('click', function () {
-            const dropdownContent = document.querySelector('.dropdown-content');
+        // Dropdown toggle function
+        function toggleDropdown() {
+            const dropdownContent = document.getElementById('dropdown');
             dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-        });
-
-        // Optional: Close the dropdown if the user clicks outside of it
+        }
+        // Close dropdown on outside click
         window.onclick = function (event) {
-            if (!event.target.matches('.dropbtn')) {
-                const dropdowns = document.getElementsByClassName("dropdown-content");
-                for (let i = 0; i < dropdowns.length; i++) {
-                    const openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === 'block') {
-                        openDropdown.style.display = 'none';
+            if (!event.target.matches('.profile-image')) {
+                const dropdownContent = document.getElementById('dropdown');
+                if (dropdownContent.style.display === 'block') {
+                    dropdownContent.style.display = 'none';
+                }
+            }
+        };
+
+        document.querySelector('.toggle-button').addEventListener('click', function () {
+        const sidebar = document.querySelector('.sidebar1');
+        sidebar.classList.toggle('active');
+        });
+        // Pie chart setup
+        var ctx = document.getElementById('paymentPieChart').getContext('2d');
+        var data = {
+            labels: ['Card', 'Cash', 'Other'],
+            datasets: [{
+                data: [21545, 6841, 7041],
+                backgroundColor: ['green', 'blue', 'orange'],
+                borderColor: ['white', 'white', 'white'],
+                borderWidth: 2
+            }]
+        };
+        var options = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.label + ': Rs ' + tooltipItem.raw;
+                        }
                     }
                 }
             }
-        }
-
-        // Drop Down Close
-
-        // Toggle Start
-        document.querySelector('.toggle-button').addEventListener('click', function () {
-            const sidebar = document.querySelector('.sidebar1');
-            sidebar.classList.toggle('active');
+        };
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: data,
+            options: options
         });
-
-        // Existing dropdown functionality
-        document.querySelector('.dropbtn').addEventListener('click', function () {
-            const dropdownContent = document.querySelector('.dropdown-content');
-            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-        });
-
-        // Optional: Close the dropdown if the user clicks outside of it
-        window.onclick = function (event) {
-            if (!event.target.matches('.dropbtn')) {
-                const dropdowns = document.getElementsByClassName("dropdown-content");
-                for (let i = 0; i < dropdowns.length; i++) {
-                    const openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === 'block') {
-                        openDropdown.style.display = 'none';
-                    }
-                }
-            }
-        }
-
-        // Toggle End
-        document.querySelector('.toggle-button').addEventListener('click', function () {
-            const sidebar = document.querySelector('.sidebar-container');
-            sidebar.classList.toggle('active');
-        });
-
-// Get the canvas element for the pie chart
-var ctx = document.getElementById('paymentPieChart').getContext('2d');
-
-// Data for the pie chart
-var data = {
-    labels: ['Card', 'Cash', 'Other'],
-    datasets: [{
-        data: [21545, 6841, 7041],
-        backgroundColor: ['green', 'blue', 'orange'],
-        borderColor: ['white', 'white', 'white'],
-        borderWidth: 2
-    }]
-};
-
-// Options for the pie chart
-var options = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: 'top',
-        },
-        tooltip: {
-            callbacks: {
-                label: function(tooltipItem) {
-                    return tooltipItem.label + ': Rs ' + tooltipItem.raw;
-                }
-            }
-        }
-    }
-};
-
-// Create the pie chart
-var myPieChart = new Chart(ctx, {
-    type: 'pie',
-    data: data,
-    options: options
-});
-
     </script>
-
+    
+    
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -350,3 +311,9 @@ var myPieChart = new Chart(ctx, {
 </body>
 
 </html>
+
+<!-- 
+🚀 **Hiring: Digital Marketing Manager!** 🚀 **Location:** Pathankot/Onsite **Type:** Full-time We’re on the lookout for a talented Digital Marketing Manager with a minimum of **5 years’ experience**! **Key Skills:** - Strong knowledge of SMM, SMO, SEO, and PPC strategies and tools. - Proven track record of driving successful digital marketing campaigns. - Excellent analytical skills and experience with web analytics tools (e.g., Google Analytics). If you’re passionate about driving results and have the expertise we need, please send your resume to info@vasinfosys.com. Help us spread the word! 🙌
+2024-07-24 01:59
+🌐 Welcome to VasInfosys! Your gateway to cutting-edge IT solutions and services. 🚀 At VasInfosys, we specialize in delivering bespoke IT solutions tailored to your business needs. From software development to cloud computing, cybersecurity to digital transformation, we're your trusted partner in navigating the complexities of the digital world. Our team of experienced professionals is committed to excellence, innovation, and customer satisfaction. Whether you're a startup looking to establish your digital presence or a corporation aiming to streamline operations, VasInfosys is here to empower your success. Stay tuned for updates, industry insights, and success stories that showcase how we're shaping the future of technology. Join us on this journey of transformation! 🔗 Connect with us and discover the power of technology to drive your business forward.
+-->
