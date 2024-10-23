@@ -402,20 +402,57 @@ color: var(--clr-warnig);
         margin-left: 05px;
     }
     .toggle-button {
-    margin-right: 35px;
+        margin-right: 35px;
     }
+    .primary{
+        font-size: medium;
+    }
+    .typ{
+        margin-left:0px !important;
+        padding: 0px !important;
+    }
+    .typ th{
+        font-size: small !important;
+        margin-left:02px;
+    }
+    .typ td {
+        padding: 2px !important; 
+            font-size: 12px;
+            }
+
     .recent_orders {
-    left: 05px; }
+        left: 05px; }
 
     #paymentPieChart {
-        width: 150px !important;
-        height: 200px !important;
+        width: 140px !important;
+        height: 150px !important;
     }
     .pie-chart{
         display: block;
         box-sizing: border-box;
         width: 100%; 
-        max-width: 200px;}
+        max-width: 200px;
+        margin-left:0px !important;
+        text-align: left!important;
+            }
+    .last{
+        padding: 0px !important;
+    }
+        .last h1 {
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        padding: 0px;
+        }
+    .tbl th{
+        padding: 1px !important;
+        text-align: left !important;
+    }
+    .tbl td{
+        padding: 0px !important;
+        font-size: 11px;
+        font-weight: 600;
+    }
 }
 
 .toggle-button {
@@ -493,7 +530,9 @@ main .insight>div{
     /* justify-content: space-between; */
 }
 
-
+.pym{
+    margin-left: 10px;
+}
 .third {
     /* display: flex;  */
     /*justify-content: center;  Center the content */
@@ -565,6 +604,7 @@ main .insight>div{
     font-size: 18px;
     margin-left: 10px;
     border-radius: 20%;
+    padding: 10px;
 }
 .typ td{
     border: 1px solid rgb(223, 217, 223);
@@ -582,7 +622,8 @@ main .insight>div{
     width: 100%; /* Full width for responsiveness */
     max-width: 300px; /* Set a maximum width */
     align-content: center;
-    margin-left: 5px;
+    margin-left: 15px;
+    text-align: center;
     }
 
 .paymentPieChart{
@@ -650,4 +691,12 @@ main .insight>div{
         .aside .logo{
             width: 100px;
         }
+}
+
+.space{
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #111e88;
+    font-size: 20px;
+    font-weight: 900;
 }

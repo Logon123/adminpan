@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  <!-- https://sites.google.com/view/hpprinter-supp0rtus  Printer Website-->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/read-excel-file@5.0.0/dist/read-excel-file.min.js"></script>
+    <script src="https://unpkg.com/browse/read-excel-file@5.8.6/bundle/read-excel-file.min.js"></script>
+    <style>
+        table {width: 100%; border-collapse: collapse;}
+        th, td {border: 1px solid black;padding: 10px;text-align: left;}
+        th {background-color: #f2f2f2;}
+        .gr{background-color:green;} .bl{background-color:blue; color: white;} .yel{background-color:yellow;}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Aside Section-->
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <h2><span class="inf"><img src="img/logos-.png" height="80" width="150"></span></h2>
+                </div>
+                <div class="toggle-button">
+                    <span class="material-icons">menu</span>
+                </div>
+            </div>
+            <!-- aSide End-->
+        </aside>
+
+        <!--Main Section Start-->
+        <main>
+            <!-- Side bar-->
+            <div class="sidebar1 data-toggle=collapse">
+                <a href="index.html">
+                    <span class="material-icons active">home</span>
+                    <span class="text">Home</span>
+                </a>
+                <a href="report.html">
+                    <span class="material-icons">report_gmailerrorred</span>
+                    <span class="text">Report</span>
+                </a>
+                <a href="transaction.html">
+                    <span class="material-icons">trending_up</span>
+                    <span class="text">Transaction</span>
+                </a>
+                <a href="sale.html">
+                    <span class="material-icons">sell</span>
+                    <span class="text">Sale</span>
+                </a>
+                <a href="item.html">
+                    <span class="material-icons">receipt_long</span>
+                    <span class="text">Items</span>
+                </a>
+                <a href="customer.html">
+                    <span class="material-icons">group</span>
+                    <span class="text">Customer</span>
+                </a>
+                <a href="team.html">
+                    <span class="material-icons">groups</span>
+                    <span class="text">Team</span>
+                </a>
+                <a href="#">
+                    <span class="material-icons">settings</span>
+                    <span class="text">Setting</span>
+                </a>
+            </div>
+        </main>
+        <!--Main Section End-->
+
+        <!--Div Right Start-->
+        <div class="div-right">
+            <div class="profile">
+                <i class="fas fa-circle" style="font-size:14px; color:green; position:absolute; top:55px !important;"></i>
+                <img src="img/profile-.png" alt="Profile Picture" class="profile-image" onclick="toggleDropdown()" />
+                <div class="profile-info">
+                    <span class="name">Yogesh Kumar</span>
+                    <div class="dropdown">
+                        <div class="dropdown-content" id="dropdown">
+                            <span class="dropdown-name">Yogesh Kumar</span>
+                            <a href="#"><i class='fas fa-user-circle' style='font-size:16px; color:blue'></i> Admin</a>
+                            <a href="#"> <i class='fas fa-wrench' style='font-size:16px; color:blue'></i> Profile Settings</a>
+                            <a href="#"><i class='fa fa-sign-out' style='font-size:16px; color:blue'></i>Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Div Right End-->
+
+    </div>
+
+    <!-- https://www.youtube.com/watch?v=_MdlBXSN7tA    Excel File Fetch Data--> 
+    <div class="container2 col-lg-12">
+        <div class="recent_orders col-md-4">
+            <h1>Sale Records</h1>
+            
+            <div id="output" class="mt-3"></div>
+            
+            <table id="records">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Total No.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample records will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="bar-chart col-md-4" >
+            <canvas id="paymentBarChart" style="height: 400px; width: 400px;"></canvas>
+        </div>
+        <div class="last col-md-4">
+            <h1><strong>Sale Summary</strong></h1>
+            <!-- <table class="tbl">
+                <thead class="h columns-sm-2">
+                    <tr>
+                        <th> Types: </th>
+                        <th colspan="2"> Value: </th>
+                    </tr>
+                </thead>
+                <tbody class="col-md-2">
+                    <tr>
+                        <td><i class="fas fa-tag" style="font-size:18px; color: blue;"></i> Total Sale</td>
+                        <td>9854</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-tags" style="font-size:18px; color: blue;"></i> New Sale</td>
+                        <td>  141</td>
+                    </tr>
+                </tbody>
+            </table> -->
+    
+
+            <div id="chart-year"></div>
+            <!-- <div id="chart-quarter" class="inactive"></div> -->
+            <!-- <select id="model">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+            </select> -->
+
+
+    
+        </div>
+
+    
+    </div>
+    
+    <script>
+        // Dropdown toggle function
+        function toggleDropdown() {
+            const dropdownContent = document.getElementById('dropdown');
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+        }
+        // Close dropdown on outside click
+        window.onclick = function (event) {
+            if (!event.target.matches('.profile-image')) {
+                const dropdownContent = document.getElementById('dropdown');
+                if (dropdownContent.style.display === 'block') {
+                    dropdownContent.style.display = 'none';
+                }
+            }
+        };
+    
+        document.querySelector('.toggle-button').addEventListener('click', function () {
+            const sidebar = document.querySelector('.sidebar1');
+            sidebar.classList.toggle('active');
+        });
+    
+        // Bar chart setup
+        var ctx = document.getElementById('paymentBarChart').getContext('2d');
+        var barData = {
+            labels: ['Sale1', 'Sale2', 'Sale3'],
+            datasets: [{
+                label: 'Payment Value (Rs)',
+                data: [9854, 2488, 3179],
+                backgroundColor: ['green', 'blue', 'orange'],
+                borderColor: ['white', 'white', 'white'],
+                borderWidth: 2
+            }]
+        };
+        var barOptions = {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.dataset.label + ': Rs ' + tooltipItem.raw;
+                        }
+                    }
+                }
+            }
+        };
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: barData,
+            options: barOptions
+        });
+
+ // Sample Data retrieve from Jquery Code
+ 
+$(document).ready(function() {
+    // Sample records to display
+    const sampleRecords = [
+        { id: 1, name: "Sale 1", description: "Sale 9854.", className: "gr"},
+        { id: 2, name: "Sale 2", description: "Sale 2488.",className: "bl" },
+        { id: 3, name: "Sale 3", description: "Sale 3179", className: "yel" },
+    ];
+
+    // Loop through sample records and append to the table body
+    sampleRecords.forEach(record => {
+        $('#records tbody').append(`
+            <tr class="${record.className}">
+                <td >${record.id}</td>
+                <td >${record.name}</td>
+                <td >${record.description}</td>
+            </tr>
+        `);
+    });
+});
+
+
+
+// New Chart  Add on 
+// Replace makeData() and updateQuarterChart() with your own data generation and update functions.
+function makeData() {
+            return [20, 16, 35, 27]; // Example data
+        }
+
+        function updateQuarterChart(chart, chartId) {
+            // Implement your logic to update the quarter chart based on selected data
+            console.log('Update Quarter Chart:', chartId);
+        }
+
+        var colors = ['#FF4560', '#008FFB', '#00E396', '#775DD0']; // Example color array
+
+        var options = {
+            series: [{
+                data: makeData()
+            }],
+            chart: {
+                id: 'barYear',
+                height: 400,
+                width: '100%',
+                type: 'bar',
+                events: {
+                    dataPointSelection: function (e, chart, opts) {
+                        var quarterChartEl = document.querySelector("#chart-quarter");
+                        var yearChartEl = document.querySelector("#chart-year");
+
+                        if (opts.selectedDataPoints[0].length === 1) {
+                            if (quarterChartEl.classList.contains("active")) {
+                                updateQuarterChart(chart, 'barQuarter');
+                            } else {
+                                yearChartEl.classList.add("chart-quarter-activated");
+                                quarterChartEl.classList.add("active");
+                                updateQuarterChart(chart, 'barQuarter');
+                            }
+                        } else {
+                            updateQuarterChart(chart, 'barQuarter');
+                        }
+
+                        if (opts.selectedDataPoints[0].length === 0) {
+                            yearChartEl.classList.remove("chart-quarter-activated");
+                            quarterChartEl.classList.remove("active");
+                        }
+                    },
+                    updated: function (chart) {
+                        updateQuarterChart(chart, 'barQuarter');
+                    }
+                }
+            },
+            plotOptions: {
+                bar: {
+                    distributed: true,
+                    horizontal: true,
+                    barHeight: '75%',
+                    dataLabels: {
+                        position: 'bottom'
+                    }
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                textAnchor: 'start',
+                style: {
+                    colors: ['#fff']
+                },
+                formatter: function (val, opt) {
+                    return opt.w.globals.labels[opt.dataPointIndex];
+                },
+                offsetX: 0,
+                dropShadow: {
+                    enabled: true
+                }
+            },
+            colors: colors,
+            states: {
+                normal: {
+                    filter: {
+                        type: 'desaturate'
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: true,
+                    filter: {
+                        type: 'darken',
+                        value: 1
+                    }
+                }
+            },
+            tooltip: {
+                x: {
+                    show: false
+                },
+                y: {
+                    title: {
+                        formatter: function (val, opts) {
+                            return opts.w.globals.labels[opts.dataPointIndex];
+                        }
+                    }
+                }
+            },
+            title: {
+                text: 'Yearly Results',
+                offsetX: 15
+            },
+            subtitle: {
+                text: '(Click on bar to see details)',
+                offsetX: 15
+            },
+            yaxis: {
+                labels: {
+                    show: false
+                }
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart-year"), options);
+        chart.render();
+
+        var optionsQuarter = {
+            series: [{
+                data: []
+            }],
+            chart: {
+                id: 'barQuarter',
+                height: 400,
+                width: '100%',
+                type: 'bar',
+                stacked: true
+            },
+            plotOptions: {
+                bar: {
+                    columnWidth: '50%',
+                    horizontal: false
+                }
+            },
+            legend: {
+                show: false
+            },
+            grid: {
+                yaxis: {
+                    lines: {
+                        show: false,
+                    }
+                },
+                xaxis: {
+                    lines: {
+                        show: true,
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    show: false
+                }
+            },
+            title: {
+                text: 'Quarterly Results',
+                offsetX: 10
+            },
+            tooltip: {
+                x: {
+                    formatter: function (val, opts) {
+                        return opts.w.globals.seriesNames[opts.seriesIndex];
+                    }
+                },
+                y: {
+                    title: {
+                        formatter: function (val, opts) {
+                            return opts.w.globals.labels[opts.dataPointIndex];
+                        }
+                    }
+                }
+            }
+        };
+
+        var chartQuarter = new ApexCharts(document.querySelector("#chart-quarter"), optionsQuarter);
+        chartQuarter.render();
+
+        document.querySelector("#model").addEventListener("change", function (e) {
+            chart.updateSeries([{
+                data: makeData()
+            }]);
+        });
+
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+</body>
+</html>

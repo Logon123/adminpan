@@ -79,7 +79,7 @@
                     <span class="name">Yogesh Kumar</span>
                     <div class="dropdown">
                         <div class="dropdown-content" id="dropdown">
-                            <span class="dropdown-name">Yogesh Kumar </span>
+                            <span class="dropdown-name">Yogesh Kumar</span>
                             <a href="#"><i class='fas fa-user-circle' style='font-size:16px; color:blue'></i> Admin</a>
                             <a href="#"> <i class='fas fa-wrench' style='font-size:16px; color:blue'></i> Profile Settings</a>
                             <a href="#"><i class='fa fa-sign-out' style='font-size:16px; color:blue'></i>Logout</a>
@@ -95,8 +95,11 @@
     <!-- https://www.youtube.com/watch?v=_MdlBXSN7tA    Excel File Fetch Data--> 
     <div class="container2 col-lg-12">
         <div class="recent_orders col-md-4">
-            <h1 class="primary">Payment Method</h1>
-            <table class="typ">
+            <h1>Data Retrieval</h1>
+            <button id="showData" class="btn btn-primary">Show  Data</button>
+            <div id="output" class="mt-3"></div>
+            
+            <!-- <table class="typ">
                 <thead>
                     <tr>
                         <th> Payment Types: </th>
@@ -117,7 +120,7 @@
                         <td>Rs 6179</td>
                     </tr>
                 </tbody>
-            </table>
+            </table> -->
         </div>
         <div class="bar-chart col-md-4" >
             <canvas id="paymentBarChart" style="height: 400px; width: 400px;"></canvas>
@@ -139,14 +142,6 @@
                     <tr>
                         <td><i class="fas fa-user-alt" style="font-size:18px; color: blue;"></i> New Customer</td>
                         <td>  261</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-user-tie" style="font-size:18px;color: blue;"></i> Returning Customer</td>
-                        <td>102</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-male" style="font-size:25px; color: blue;"></i> Average visits per customer</td>
-                        <td>3</td>
                     </tr>
                 </tbody>
             </table>
@@ -211,6 +206,44 @@
             data: barData,
             options: barOptions
         });
+
+ // Sample Data retrieve from Jquery Code
+ $(document).ready(function() {
+            $('#showData').click(function() {
+                // Sample data
+                const sampleData = `
+                <style>
+                    .report {
+                        background-color: blue;
+                        color: White;
+                        padding: 20px;
+                        
+                    }
+                    .repo{
+                        color: purple;
+                    }
+                    .pym{
+                    border:2px dotted skyblue;
+                    }
+                    .fas {
+                        font-size:20px;}
+                </style>
+                    <h3 class="report">Payment Report</h3>
+                    <p class="repo">This is a Payment description to demonstrate data retrieval and display.</p>
+                    <ul>
+                        <li class="pym"> <i class="fas fa-credit-card" style="color: green;"></i> Cash Payment</li>
+                        <li class="pym"> <i class="fas fa-money-bill-wave" style="color: blue;"></i> Card Payment</li>
+                        <li class="pym"> <i class="fas fa-ellipsis-h" style="color: orange;"></i> Other Payment</li>
+                    </ul>
+                `;
+
+                // Display the sample data in the output div
+                $('#output').html(sampleData);
+            });
+        });
+       
+
+
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

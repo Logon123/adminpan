@@ -1,0 +1,21 @@
+
+<!-- inside the body tag code -->
+<p id="description">This is a Bootstrap example.</p>
+        <button id="retrieveData" class="btn btn-primary">Retrieve Data</button>
+        <div id="output" style="margin-top: 20px;"></div>
+
+
+        <!-- inside the script code -->
+<script>
+        // Excel Data Fetch via Excel Files
+        document.getElementById('retrieveData').addEventListener('click', function() {
+    const titleElement = document.getElementById('title');
+    const description = document.getElementById('description').innerText;
+
+    const title = titleElement ? titleElement.innerText : 'Title not found';
+    // Display the retrieved data in the output div
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = `<strong>Title:</strong> ${title} <br><strong>Description:</strong> ${description}`;
+});
+</script>
+

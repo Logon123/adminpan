@@ -13,6 +13,9 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
 </head>
 
 <body>
@@ -44,26 +47,26 @@
                     <span class="text">Report</span>
                 </a>
 
-                <a href="#">
+                <a href="transaction.html">
                     <span class="material-icons">trending_up</span>
                     <span class="text">Transaction</span>
                 </a>
 
-                <a href="#">
+                <a href="sale.html">
                     <span class="material-icons">sell</span>
                     <span class="text">Sale</span>
                 </a>
 
-                <a href="#">
+                <a href="item.html">
                     <span class="material-icons">receipt_long</span>
                     <span class="text">Items</span>
                 </a>
 
-                <a href="#">
+                <a href="customer.html">
                     <span class="material-icons">group</span>
                     <span class="text">Customer</span>
                 </a>
-                <a href="#">
+                <a href="team.html">
                     <span class="material-icons">groups</span>
                     <span class="text">Team</span>
                 </a>
@@ -86,9 +89,10 @@
                     <span class="name">Yogesh Kumar</span>
                     <div class="dropdown">
                         <div class="dropdown-content" id="dropdown">
-                            <span class="dropdown-name">Yogesh Kumar - Admin</span>
-                            <a href="#">Profile Settings</a>
-                            <a href="#">Logout</a>
+                            <span class="dropdown-name">Yogesh Kumar </span>
+                            <a href="#"><i class='fas fa-user-circle' style='font-size:16px; color:blue'></i> Admin</a>
+                            <a href="#"> <i class='fas fa-wrench' style='font-size:16px; color:blue'></i> Profile Settings</a>
+                            <a href="#"><i class='fa fa-sign-out' style='font-size:16px; color:blue'></i>Logout</a>
                         </div>
                     </div>
                 </div>
@@ -164,7 +168,7 @@
     <div class="container2 col-lg-12">
         <!-- Start Payment Type-->
         <div class=" col-md-4">
-            <h2 class="primary">Payment Method</h2>
+            <h2 class="primary pym">Payment Method</h2>
         
         <table class="typ">
             <thead>
@@ -245,8 +249,12 @@
                     </tbody></table>
         </div>
     </div>
+    <h1>Data Retrieval</h1>
+    <button id="showData" class="btn btn-primary">Show  Data</button>
+    <div id="output" class="mt-3"></div>
 </div>
-    <script src="script.js"></script>
+
+    <!-- <script src="script.js"></script> -->
     
     <script>
         // Dropdown toggle function
@@ -299,6 +307,38 @@
             data: data,
             options: options
         });
+
+
+        // Sample Data retrieve from Jquery Code
+        $(document).ready(function() {
+            $('#showData').click(function() {
+                // Sample data
+                const sampleData = `
+                <style>
+                    .report {
+                        background-color: blue;
+                        color: White;
+                        padding: 20px;
+                    }
+                    .repo{
+                        color: purple;
+                    }
+                </style>
+                    <h3 class="report">Payment Report</h3>
+                    <p class="repo">This is a Payment description to demonstrate data retrieval and display.</p>
+                    <ul>
+                        <li>Cash Payment</li>
+                        <li>Card Payment</li>
+                        <li>Other Payment</li>
+                    </ul>
+                `;
+
+                // Display the sample data in the output div
+                $('#output').html(sampleData);
+            });
+        });
+        
+
     </script>
     
     

@@ -11,6 +11,9 @@
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/read-excel-file@5.0.0/dist/read-excel-file.min.js"></script>
@@ -95,32 +98,32 @@
     <!-- https://www.youtube.com/watch?v=_MdlBXSN7tA    Excel File Fetch Data--> 
     <div class="container2 col-lg-12">
         <div class="recent_orders col-md-4">
-            <h1 class="primary">Payment Method</h1>
+            <h1 class="primary">Customer</h1>
             <table class="typ">
                 <thead>
                     <tr>
-                        <th> Payment Types: </th>
-                        <th> Value: </th>
+                        <th> Customer Types </th>
+                        <th> Record </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><i class="fas fa-credit-card" style="color: green;"></i> Card</td>
-                        <td>Rs 19854</td>
+                        <td><i class="fas fa-user-check" style="color: green; font-size:20px;"></i> Regular</td>
+                        <td> 512</td>
                     </tr>
                     <tr>
-                        <td><i class="fas fa-money-bill-wave" style="color: blue;"></i> Cash</td>
-                        <td>Rs 5488</td>
+                        <td><i class="fas fa-child" style="color: blue; font-size:20px;"></i> New</td>
+                        <td>221</td>
                     </tr>
                     <tr>
-                        <td><i class="fas fa-ellipsis-h" style="color: orange;"></i> Other</td>
-                        <td>Rs 6179</td>
+                        <td><i class="fas fa-user" style="color: orange; font-size:20px;"></i> Other</td>
+                        <td> 104</td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="bar-chart col-md-4" >
-            <canvas id="paymentBarChart" style="height: 400px; width: 400px;"></canvas>
+            <div id="chart"></div>
         </div>
         <div class="last col-md-4">
             <h1><strong>Last 30 Days</strong></h1>
@@ -175,42 +178,130 @@
         });
     
         // Bar chart setup
-        var ctx = document.getElementById('paymentBarChart').getContext('2d');
-        var barData = {
-            labels: ['Card', 'Cash', 'Other'],
-            datasets: [{
-                label: 'Payment Value (Rs)',
-                data: [19854, 5488, 6179],
-                backgroundColor: ['green', 'blue', 'orange'],
-                borderColor: ['white', 'white', 'white'],
-                borderWidth: 2
-            }]
-        };
-        var barOptions = {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            },
-            plugins: {
-                legend: {
-                    position: 'top',
+        var options = {
+    series: [
+        {
+            data: [
+                {
+                    x: 'Analysis',
+                    y: [
+                        new Date('2019-02-27').getTime(),
+                        new Date('2019-03-09').getTime()
+                    ],
+                    fillColor: '#008FFB'
                 },
-                tooltip: {
-                    callbacks: {
-                        label: function(tooltipItem) {
-                            return tooltipItem.dataset.label + ': Rs ' + tooltipItem.raw;
-                        }
-                    }
+                {
+                    x: 'Design',
+                    y: [
+                        new Date('2019-03-02').getTime(),
+                        new Date('2019-03-09').getTime()
+                    ],
+                    fillColor: '#00E396'
+                },
+                {
+                    x: 'Coding',
+                    y: [
+                        new Date('2019-03-06').getTime(),
+                        new Date('2019-03-13').getTime()
+                    ],
+                    fillColor: '#775DD0'
+                },
+                {
+                    x: 'Testing',
+                    y: [
+                        new Date('2019-03-05').getTime(),
+                        new Date('2019-03-12').getTime()
+                    ],
+                    fillColor: '#FEB019'
+                },
+                {
+                    x: 'Deployment',
+                    y: [
+                        new Date('2019-03-04').getTime(),
+                        new Date('2019-03-17').getTime()
+                    ],
+                    fillColor: '#FF4560'
                 }
+            ]
+        }
+    ],
+    chart: {
+        height: 350,
+        width: 400,
+        type: 'rangeBar',
+        toolbar: {
+            show: false  // This removes the toolbar
+            
+        },
+        title: {
+            text: 'Project Timeline',
+            align: 'center',
+            style: {
+                color: '#000', // Customize the title color here
+                fontSize: '16px',
+                fontWeight: 'bold',
+                fillColor: '#00E396',
+                show:true
             }
-        };
-        var myBarChart = new Chart(ctx, {
-            type: 'bar',
-            data: barData,
-            options: barOptions
-        });
+        }
+    },
+    plotOptions: {
+        bar: {
+            horizontal: true,
+            distributed: true,
+            dataLabels: {
+                hideOverflowingLabels: false
+            }
+        }
+    },
+    dataLabels: {
+        enabled: true,
+        formatter: function(val, opts) {
+            var label = opts.w.globals.labels[opts.dataPointIndex];
+            var a = moment(val[0]);
+            var b = moment(val[1]);
+            var diff = b.diff(a, 'days');
+            return label + ': ' + diff + (diff > 1 ? ' days' : ' day');
+        },
+        style: {
+            colors: ['#f3f4f5', '#fff']
+        }
+    },
+    xaxis: {
+        type: 'datetime',
+        labels: {
+            format: 'MMM yyyy'
+        },
+        min: new Date('2019-02-25').getTime(),
+        max: new Date('2019-03-20').getTime(),
+        style: {
+            colors: '#00f'
+               }
+        
+    },
+    yaxis: {
+    labels: {
+        show: true,
+        align: 'right', // Align labels to the right side
+        style: {
+            colors: ['#00f'], // Color of the labels
+            fontSize: '12px',
+            fontWeight: 'bold',
+            margin:-'10px'
+        }
+    },
+    type: 'category' // Set the type to 'category' for the y-axis
+},
+    grid: {
+        row: {
+            colors: ['#f3f4f5', '#fff'],
+            opacity: 1
+        }
+    }
+};
+
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+chart.render();
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
