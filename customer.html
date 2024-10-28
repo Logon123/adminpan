@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
+    <link rel="shortcut icon" href="./img/admin_favicon-.png"  type="image/x-icon" />
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -97,7 +98,7 @@
 
     <!-- https://www.youtube.com/watch?v=_MdlBXSN7tA    Excel File Fetch Data--> 
     <div class="container2 col-lg-12">
-        <div class="recent_orders col-md-4">
+        <div class="recent_ord col-md-4">
             <h1 class="primary">Customer</h1>
             <table class="typ">
                 <thead>
@@ -123,10 +124,10 @@
             </table>
         </div>
         <div class="bar-chart col-md-4" >
-            <div id="chart"></div>
+            <div id="charts"></div>
         </div>
         <div class="last col-md-4">
-            <h1><strong>Last 30 Days</strong></h1>
+            <h1><strong>Customer List</strong></h1>
             <table class="tbl">
                 <thead class="h columns-sm-2">
                     <tr>
@@ -179,129 +180,80 @@
     
         // Bar chart setup
         var options = {
-    series: [
-        {
-            data: [
+            series: [
                 {
-                    x: 'Analysis',
-                    y: [
-                        new Date('2019-02-27').getTime(),
-                        new Date('2019-03-09').getTime()
-                    ],
-                    fillColor: '#008FFB'
-                },
-                {
-                    x: 'Design',
-                    y: [
-                        new Date('2019-03-02').getTime(),
-                        new Date('2019-03-09').getTime()
-                    ],
-                    fillColor: '#00E396'
-                },
-                {
-                    x: 'Coding',
-                    y: [
-                        new Date('2019-03-06').getTime(),
-                        new Date('2019-03-13').getTime()
-                    ],
-                    fillColor: '#775DD0'
-                },
-                {
-                    x: 'Testing',
-                    y: [
-                        new Date('2019-03-05').getTime(),
-                        new Date('2019-03-12').getTime()
-                    ],
-                    fillColor: '#FEB019'
-                },
-                {
-                    x: 'Deployment',
-                    y: [
-                        new Date('2019-03-04').getTime(),
-                        new Date('2019-03-17').getTime()
-                    ],
-                    fillColor: '#FF4560'
+                    data: [
+                        { x: 'New', y: 1.2 },
+                        { x: 'Old', y: 0.4 },
+                        { x: 'Previous', y: -1.4 },
+                        { x: 'Forward', y: 2.7 },
+                        { x: 'CAT', y: -0.3 },
+                        { x: 'Other', y: 5.1 },
+                        { x: 'New User', y: -2.3 },
+                        { x: 'Regular', y: 2.1 },
+                        { x: 'Inacive User', y: -2.31 },
+                        { x: 'Active User', y: 3.98 },
+                        { x: 'Extra User', y: 1.67 }
+                    ]
                 }
-            ]
-        }
-    ],
-    chart: {
-        height: 350,
-        width: 400,
-        type: 'rangeBar',
-        toolbar: {
-            show: false  // This removes the toolbar
-            
-        },
-        title: {
-            text: 'Project Timeline',
-            align: 'center',
-            style: {
-                color: '#000', // Customize the title color here
-                fontSize: '16px',
-                fontWeight: 'bold',
-                fillColor: '#00E396',
-                show:true
-            }
-        }
-    },
-    plotOptions: {
-        bar: {
-            horizontal: true,
-            distributed: true,
+            ],
+            legend: {
+                show: false
+            },
+            chart: {
+                height: 350,
+                // width:  400,
+                type: 'treemap'
+            },
+            title: {
+                text: 'User with Color scale',
+                show: false
+            },
             dataLabels: {
-                hideOverflowingLabels: false
+                enabled: true,
+                style: {
+                    fontSize: '12px',
+                },
+                formatter: function(text, op) {
+                    return [text, op.value];
+                },
+                offsetY: -4
+            },
+            plotOptions: {
+                treemap: {
+                    enableShades: true,
+                    shadeIntensity: 0.5,
+                    reverseNegativeShade: true,
+                    colorScale: {
+                        ranges: [
+                            {
+                                from: -6,
+                                to: -2,
+                                color: '#CD363A'
+                            },
+                            {
+                                from: -2,
+                                to: 0,
+                                color: '#CD93FF'
+                            },
+                            {
+                                from: 0,
+                                to: 2,
+                                color: '#9F2B68'
+                            },
+                            {
+                                from: 2,
+                                to: 6,
+                                color: '#52B12C'
+                            }
+                        ]
+                    }
+                }
             }
-        }
-    },
-    dataLabels: {
-        enabled: true,
-        formatter: function(val, opts) {
-            var label = opts.w.globals.labels[opts.dataPointIndex];
-            var a = moment(val[0]);
-            var b = moment(val[1]);
-            var diff = b.diff(a, 'days');
-            return label + ': ' + diff + (diff > 1 ? ' days' : ' day');
-        },
-        style: {
-            colors: ['#f3f4f5', '#fff']
-        }
-    },
-    xaxis: {
-        type: 'datetime',
-        labels: {
-            format: 'MMM yyyy'
-        },
-        min: new Date('2019-02-25').getTime(),
-        max: new Date('2019-03-20').getTime(),
-        style: {
-            colors: '#00f'
-               }
-        
-    },
-    yaxis: {
-    labels: {
-        show: true,
-        align: 'right', // Align labels to the right side
-        style: {
-            colors: ['#00f'], // Color of the labels
-            fontSize: '12px',
-            fontWeight: 'bold',
-            margin:-'10px'
-        }
-    },
-    type: 'category' // Set the type to 'category' for the y-axis
-},
-    grid: {
-        row: {
-            colors: ['#f3f4f5', '#fff'],
-            opacity: 1
-        }
-    }
-};
+        };
 
-var chart = new ApexCharts(document.querySelector("#chart"), options);
-chart.render();
+        var chart = new ApexCharts(document.querySelector("#charts"), options);
+        chart.render();
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

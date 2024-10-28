@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
+    <link rel="shortcut icon" href="./img/admin_favicon-.png"  type="image/x-icon" />
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/read-excel-file@5.0.0/dist/read-excel-file.min.js"></script>
     <script src="https://unpkg.com/browse/read-excel-file@5.8.6/bundle/read-excel-file.min.js"></script>
@@ -94,7 +96,7 @@
 
     <!-- https://www.youtube.com/watch?v=_MdlBXSN7tA    Excel File Fetch Data--> 
     <div class="container2 col-lg-12">
-        <div class="recent_orders col-md-4">
+        <div class="recent_orde col-md-4">
             <h1>Data Retrieval</h1>
             <button id="showData" class="btn btn-primary">Show  Data</button>
             <div id="output" class="mt-3"></div>
@@ -123,10 +125,10 @@
             </table> -->
         </div>
         <div class="bar-chart col-md-4" >
-            <canvas id="paymentBarChart" style="height: 400px; width: 400px;"></canvas>
+            <div id="chrt"></div>
         </div>
         <div class="last col-md-4">
-            <h1><strong>Last 30 Days</strong></h1>
+            <h1><strong>Transaction Last 30 Days</strong></h1>
             <table class="tbl">
                 <thead class="h columns-sm-2">
                     <tr>
@@ -142,6 +144,14 @@
                     <tr>
                         <td><i class="fas fa-user-alt" style="font-size:18px; color: blue;"></i> New Customer</td>
                         <td>  261</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-user-check" style="font-size:18px; color: blue;"></i> Active Customer</td>
+                        <td>  561</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-user-times" style="font-size:18px; color: blue;"></i> Non-Active Customer</td>
+                        <td>  45</td>
                     </tr>
                 </tbody>
             </table>
@@ -170,42 +180,37 @@
         });
     
         // Bar chart setup
-        var ctx = document.getElementById('paymentBarChart').getContext('2d');
-        var barData = {
-            labels: ['Card', 'Cash', 'Other'],
-            datasets: [{
-                label: 'Payment Value (Rs)',
-                data: [19854, 5488, 6179],
-                backgroundColor: ['green', 'blue', 'orange'],
-                borderColor: ['white', 'white', 'white'],
-                borderWidth: 2
-            }]
-        };
-        var barOptions = {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+        var options = {
+            series: [54, 85, 67, 95],
+            chart: {
+                height: 350,
+                // width: 400,
+                type: 'radialBar',
             },
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function(tooltipItem) {
-                            return tooltipItem.dataset.label + ': Rs ' + tooltipItem.raw;
+            plotOptions: {
+                radialBar: {
+                    dataLabels: {
+                        name: {
+                            fontSize: '22px',
+                        },
+                        value: {
+                            fontSize: '16px',
+                        },
+                        total: {
+                            show: true,
+                            label: 'Total',
+                            formatter: function (w) {
+                                return 249; // Custom total value
+                            }
                         }
                     }
                 }
-            }
+            },
+            labels: ['Card', 'Cash', 'Other', 'Total'],
         };
-        var myBarChart = new Chart(ctx, {
-            type: 'bar',
-            data: barData,
-            options: barOptions
-        });
+
+        var chart = new ApexCharts(document.querySelector("#chrt"), options);
+        chart.render();
 
  // Sample Data retrieve from Jquery Code
  $(document).ready(function() {

@@ -6,27 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./img/admin_favicon-.png"  type="image/x-icon" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
-    <link rel="shortcut icon" href="./img/admin_favicon-.png"  type="image/x-icon" />
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="lineicons.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@latest/dist/apexcharts.css">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/read-excel-file@5.0.0/dist/read-excel-file.min.js"></script>
     <script src="https://unpkg.com/browse/read-excel-file@5.8.6/bundle/read-excel-file.min.js"></script>
     <style>
-        table {width: 100%; border-collapse: collapse;}
-        th, td {border: 1px solid black;padding: 10px;text-align: left;}
+        table {width: 100%; border-collapse: collapse; height: 20%; margin-right: 20px;}
+        th, td {border: 1px solid black;padding: 10px;text-align: center; }
         th {background-color: #f2f2f2;}
         .gr{background-color:green;} .bl{background-color:blue; color: white;} .yel{background-color:yellow;}
-        #chart {
-            max-width: 800px;
-            margin: 35px auto;
-        }
+        #chart {max-width: 800px; margin: 35px auto; }
+        #records tbody tr {   height: auto; /* Ensure row height is auto */    }
     </style>
     
 </head>
@@ -108,60 +109,61 @@
     </div>
 
     <!-- https://www.youtube.com/watch?v=_MdlBXSN7tA    Excel File Fetch Data--> 
+    <div class="space">Setting</div>
     <div class="container2 col-lg-12">
-        <div class="recents_ord col-md-4">
-            <h1>Item Details Records</h1>
-            
-            <div id="output" class="mt-3"></div>
-            
-            <table id="records">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>ItemName</th>
-                        <th>Total No.</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Sample records will be inserted here -->
-                </tbody>
-            </table>
+        
+        <div class="settings-container">
+            <div class="left-div">
+                <h3>Profile Settings</h3>
+                <form id="profile-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" value="Yogesh Kumar" />
+        
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" value="yogesh@example.com" />
+        
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" />
+        
+                    <label for="bio">Bio:</label>
+                    <textarea id="bio" rows="4">Your bio here...</textarea>
+                </form>
+            </div>
+        
+            <div class="right-div">
+                <h3>Company Details</h3>
+                <form id="company-form">
+                    <label for="full-name">Full Name:</label>
+                    <input type="text" id="full-name" value="Yogesh Kumar" />
+        
+                    <label for="company">Company:</label>
+                    <input type="text" id="company" />
+        
+                    <label for="email-id">Email ID:</label>
+                    <input type="email" id="email-id" />
+        
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" />
+        
+                    <label for="city">City:</label>
+                    <input type="text" id="city" />
+        
+                    <label for="zip-code">Zip Code:</label>
+                    <input type="text" id="zip-code" />
+        
+                    <label for="country">Country:</label>
+                    <select id="country">
+                        <option value="usa">USA</option>
+                        <option value="canada">Canada</option>
+                        <option value="uk">UK</option>
+                        <!-- Add more countries as needed -->
+                    </select>
+        
+                    <button type="submit">Update</button>
+                </form>
+            </div>
         </div>
-        <div class="bar-chart col-md-4" >
-            <div id="chart"></div>
-        </div>
-        <div class="last col-md-4">
-            <h1><strong>Items Summary</strong></h1>
-            <!-- <table class="tbl">
-                <thead class="h columns-sm-2">
-                    <tr>
-                        <th> Types: </th>
-                        <th colspan="2"> Value: </th>
-                    </tr>
-                </thead>
-                <tbody class="col-md-2">
-                    <tr>
-                        <td><i class="fas fa-tag" style="font-size:18px; color: blue;"></i> Total Sale</td>
-                        <td>9854</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-tags" style="font-size:18px; color: blue;"></i> New Sale</td>
-                        <td>  141</td>
-                    </tr>
-                </tbody>
-            </table> -->
-    
-
-            <div id="chart-year"></div>
-            <!-- <div id="chart-quarter" class="inactive"></div> -->
-            <!-- <select id="model">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-            </select> -->
-
-
-    
-        </div>
+        
 
     
     </div>
@@ -185,162 +187,16 @@
         document.querySelector('.toggle-button').addEventListener('click', function () {
             const sidebar = document.querySelector('.sidebar1');
             sidebar.classList.toggle('active');
+   
         });
     
-
-        // Bar chart setup
-        var options = {
-        series: [{
-            name: 'Income',
-            type: 'column',
-            data: [ 2.5, 2.8, 3.8, 4.6]
-        }, {
-            name: 'Cashflow',
-            type: 'column',
-            data: [ 4.1, 4.9, 6.5, 8.5]
-        }, {
-            name: 'Revenue',
-            type: 'line',
-            data: [  44, 45, 50, 58]
-        }],
-        chart: {
-            height: 350,
-            width:  450,
-            type: 'line',
-            stacked: false,
-            toolbar: {
-                show: false // This hides the toolbar
-            }
-        },
-        dataLabels: {
-            enabled: false
-                    },
-        stroke: {
-            width: [1, 1, 4]
-        },
-        title: {
-            text: 'Items Analysis',
-            align: 'left',
-            offsetX: 110,
-            color: '#066000',
-        },
-        xaxis: {
-            categories: [2013, 2014, 2015, 2016],
-        },
-        yaxis: [
-            {
-                seriesName: 'Income',
-                axisTicks: {
-                    show: true,
-                },
-                axisBorder: {
-                    show: true,
-                    color: '#008FFB'
-                },
-                labels: {
-                    style: {
-                        colors: '#008FFB',
-                    }
-                },
-                title: {
-                    text: "Income (thousand crores)",
-                    style: {
-                        color: '#008FFB',
-                    }
-                },
-                tooltip: {
-                    enabled: true
-                }
-            },
-            {
-                seriesName: 'Cashflow',
-                opposite: true,
-                axisTicks: {
-                    show: true,
-                },
-                axisBorder: {
-                    show: true,
-                    color: '#00E396'
-                },
-                labels: {
-                    style: {
-                        colors: '#00E396',
-                    }
-                },
-                title: {
-                    text: "Operating Cashflow (thousand crores)",
-                    style: {
-                        color: '#006600',
-                    }
-                },
-            },
-            {
-                seriesName: 'Revenue',
-                opposite: true,
-                axisTicks: {
-                    show: true,
-                },
-                axisBorder: {
-                    show: true,
-                    color: '#FEB019'
-                },
-                labels: {
-                    style: {
-                        colors: '#FEB019',
-                    },
-                },
-                title: {
-                    text: "Revenue (thousand crores)",
-                    style: {
-                        color: '#FEB019',
-                    }
-                }
-            },
-        ],
-        tooltip: {
-            fixed: {
-                enabled: true,
-                position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
-                offsetY: 30,
-                offsetX: 60
-            },
-        },
-        legend: {
-            horizontalAlign: 'left',
-            offsetX: 40
-        }
-    };
-
-    var chart = new ApexCharts(document.querySelector("#chart"), options);
-    chart.render();
  // Sample Data retrieve from Jquery Code
  
-$(document).ready(function() {
-    // Sample records to display
-    const sampleRecords = [
-        { id: 1, name: "Electronics", description: "85.", className: "gr"},
-        { id: 2, name: "Grocery", description: "49 .",className: "bl" },
-        { id: 3, name: "Garments", description: "51", className: "yel" },
-    ];
-
-    // Loop through sample records and append to the table body
-    sampleRecords.forEach(record => {
-        $('#records tbody').append(`
-            <tr class="${record.className}">
-                <td >${record.id}</td>
-                <td >${record.name}</td>
-                <td >${record.description}</td>
-            </tr>
-        `);
-    });
-});
-
-
 
 // New Chart  Add on 
 // Replace makeData() and updateQuarterChart() with your own data generation and update functions.
 function makeData() {
-            return [31, 19, 10, 47]; // Example data
+            return [20, 16, 35, 27]; // Example data
         }
 
         function updateQuarterChart(chart, chartId) {
@@ -531,3 +387,4 @@ function makeData() {
         crossorigin="anonymous"></script>
 </body>
 </html>
+

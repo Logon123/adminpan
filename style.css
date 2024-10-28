@@ -309,6 +309,19 @@ color: var(--clr-warnig);
     float:right !important;
 }
 
+#charts {
+    width: 120% !important;
+    height: 80% !important;
+    margin-left:0px !important;
+    overflow: hidden;
+}
+
+#chrt {
+    width: 120% !important;
+    height: 80% !important;
+    margin-left:0px !important;
+    overflow: hidden;
+}
 /* Media Queries */
 @media (max-width: 768px) {
     
@@ -319,7 +332,7 @@ color: var(--clr-warnig);
     .toggle-button {
         display: block; /* Show the button on mobile */
         margin-top:-70px;
-        margin-right:15px;
+        margin-right:15px !important;
     }
     .sidebar1 {
         flex-direction: column; /* Stack sidebar items vertically */
@@ -422,11 +435,50 @@ color: var(--clr-warnig);
 
     .recent_orders {
         left: 05px; }
-
+    
+    .recents_order {
+        margin-left:02px !important; }
+    
+    .recents_orde {
+            margin-left:02px !important; }
+    
+    .recents_ord {
+                margin-left:02px !important; 
+                width:50% !important;    
+            }
+    #chart {
+        width: 20% !important;
+        margin-left:0px !important;
+    }
+    #chrt {
+        width: 100%;
+        margin-left:0px !important;
+    }
+    #charts {
+        width: 100% !important;
+        height: 80% !important;
+        margin-left:0px !important;
+        overflow: hidden;
+    }
     #paymentPieChart {
         width: 140px !important;
         height: 150px !important;
     }
+
+    #paymentBarCharts{
+        width: 140px !important;
+        height: 180px !important;
+    }
+    #paymentBrChart{
+        width: 140px !important;
+        height: 180px !important;
+    }
+    #paymentBChart{
+        margin-top:20px;
+        width: 140px !important;
+        height: 200px !important;
+    }
+
     .pie-chart{
         display: block;
         box-sizing: border-box;
@@ -593,6 +645,42 @@ main .insight>div{
     margin-top: 0px;
     box-shadow: 0 2px 5px rgba(61, 116, 6, 0.1);
 }
+
+.recents_order{
+    padding: 0px;
+    margin-left:10px;
+    margin-top: 0px;
+    box-shadow: 0 2px 5px rgba(61, 116, 6, 0.1);
+}
+
+.recent_orde{
+    padding: 0px;
+    margin-left:20px;
+    margin-top: 0px;
+    box-shadow: 0 2px 5px rgba(61, 116, 6, 0.1);
+}
+
+.recents_orde{
+    padding: 0px;
+    margin-left:20px;
+    margin-top: 0px;
+    box-shadow: 0 2px 5px rgba(61, 116, 6, 0.1);
+}
+
+.recents_ord{
+    padding: 0px;
+    margin-left:10px;
+    margin-top: 0px;
+    box-shadow: 0 2px 5px rgba(61, 116, 6, 0.1);
+}
+
+.recent_ord{
+    padding: 0px;
+    margin-left:10px;
+    margin-top: 0px;
+    box-shadow: 0 2px 5px rgba(61, 116, 6, 0.1);
+}
+
 .typ{
     padding: 5px;
     /* border: 2px solid rgb(161, 165, 165); */
@@ -632,6 +720,16 @@ main .insight>div{
     width: 120px;
 }
 .paymentBarChart{
+    box-sizing: border-box;
+    /* height: 100% !important; */
+    width: 120px;
+}
+.paymentBarCharts{
+    box-sizing: border-box;
+    /* height: 100% !important; */
+    width: 120px;
+}
+.paymentBrChart{
     box-sizing: border-box;
     /* height: 100% !important; */
     width: 120px;
@@ -699,4 +797,52 @@ main .insight>div{
     color: #111e88;
     font-size: 20px;
     font-weight: 900;
+}
+
+/* Setting Page */
+.settings-container {
+    display: flex;
+    background-color: rgb(209, 205, 205);
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.left-div, .right-div {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    
+}
+
+.left-div h3, .right-div h3 {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
