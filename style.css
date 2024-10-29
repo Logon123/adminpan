@@ -806,6 +806,7 @@ main .insight>div{
     padding: 20px;
     border-radius: 8px;
     width: 100%;
+    
 }
 
 .left-div, .right-div {
@@ -827,11 +828,12 @@ label {
 }
 
 input, textarea, select {
-    width: 100%;
+    width: 96%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    
 }
 
 button {

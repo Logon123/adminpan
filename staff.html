@@ -83,7 +83,7 @@
                     <span class="text">Staff</span>
                 </a>
                 <a href="setting.html">
-                    <span class="material-icons">settings</span>
+                    <span class="material-icons">admin_panel_settings</span>
                     <span class="text">Setting</span>
                 </a>
             </div>
@@ -113,47 +113,74 @@
     </div>
 
     <!-- https://www.youtube.com/watch?v=_MdlBXSN7tA    Excel File Fetch Data--> 
-    <div class="space">Setting</div>
+    <div class="space" emoji_food_beverage>Staff</div>
     <div class="container2 col-lg-12">
         
         <div class="settings-container">
             <div class="left-div">
-                <h3 class="material-icons" style="color: blue; font-size: 34px; margin-top: 0px;">admin_panel_settings</h3><b style="font-size: 26px; color: blue;"> Profile Settings</b>
+                <h3 class="material-icons" style="color: blue; font-size: 34px; margin-top: 0px;">manage_accounts</h3>&nbsp;<b style="font-size: 26px; color: blue;">Employee Details</b>
                 <form id="profile-form">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" value="Yogesh Kumar" />
-        
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" value="yogesh@example.com" />
-        
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" />
-        
-                    <label for="email">Alternate Email:</label>
-                    <input type="email" id="email" value="support@example.com" />
+                    <label for="name">First Name</label>
+                    <input type="text" id="name" value="Yogesh " />
 
+                    <label for="name">Last Name</label>
+                    <input type="text" id="name" value=" Kumar" />
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="info@example.com" />
+        
+                    <label for="password">Phone Number</label>
+                    <input type="password" id="password" value="********" />
+        
+                    <label for="designate">Designation</label>
+                    <input type="text" id="designate" value="Designation" />
+
+                    <label for="type">Type</label>
+                    <input type="text" id="type" value="FullTime/PartTime" />
+
+                    <label for="resturant">Resturant</label>
+                    <input type="text" id="resturant" />
+
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         
             <div class="right-div">
-                <h3 class="material-icons" style="color: blue; font-size: 34px; margin-top: -05px; margin-left: 0px !important;">perm_media</h3>&nbsp;<b style="font-size: 26px; color: blue;">Social Media</b>
+                <h3 class="material-icons" style="color: blue; font-size: 34px; margin-top: 0px;">restaurant</h3>&nbsp;<b style="font-size: 26px; color: blue;">Food Details</b>
                 <form id="company-form">
-                    <label for="facebook">Facebook:</label>
-                    <input type="text" class="form-control" id="facebook" value="www.facebook.com">
+                    <label for="foodno">Item No:</label>
+                    <input type="text" id="foodno" value="no" />
         
-                    <label for="twitter">Twitter:</label>
-                    <input type="text" class="form-control" id="twitter" value="www.twitter.com">
+                    <label for="foodname">Food Name:</label>
+                    <input type="text" id="foodname" />
         
-                    <label for="google">Google +:</label>
-                    <input type="text" class="form-control" id="google" value="www.google.com">
+                    <label for="Categories">Categories</label>
+                    <select id="Categories">
+                        <option value="veg">Veg</option>
+                        <option value="nonveg">Non-Veg</option>
+                        <option value="fastfood">Fast Food</option>
+                        <option value="desserts">Desserts</option>
+                        <option value="desserts">Beverages</option>
+                        <!-- Add more countries as needed -->
+                    </select>
+                            
+                    <label for="foodprice">Food Price</label>
+                    <input type="text" id="foodprice" />
         
-                    <label for="instagram">Instagram:</label>
-                    <input type="text" class="form-control" id="instagram" value="www.instagram.com">
+                    <label for="table">Table No</label>
+                    <input type="text" id="table" />
+
+                    <label for="unit">Unit of Measurement</label>
+                    <input type="text" id="unit" value="e.g., kg, lbs, each"/>
         
-                    <label for="youtube">You Tube:</label>
-                    <input type="text" class="form-control" id="youtube" value="www.youtube.com">
+                    <label for="payment">Payment Method:</label>
+                    <select id="payment">
+                        <option value="cash">Cash</option>
+                        <option value="Card">Card</option>
+                        <option value="other">Other</option>
+                    </select>
         
-                    <button type="submit">Update</button>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         </div>
