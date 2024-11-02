@@ -117,30 +117,7 @@
         <div class="settings-container">
             <div class="left-div">
                 <h3 class="material-icons" style="color: blue; font-size: 34px; margin-top: 0px;">manage_accounts</h3>&nbsp;<b style="font-size: 26px; color: blue;">Employee Details</b>
-                <form id="profile-form">
-                    <label for="name">First Name</label>
-                    <input type="text" id="name" value="Yogesh " />
-
-                    <label for="name">Last Name</label>
-                    <input type="text" id="name" value=" Kumar" />
-
-                    <label for="email">Email</label>
-                    <input type="email" id="email" value="info@example.com" />
-        
-                    <label for="password">Phone Number</label>
-                    <input type="password" id="password" value="********" />
-        
-                    <label for="designate">Designation</label>
-                    <input type="text" id="designate" value="Designation" />
-
-                    <label for="type">Type</label>
-                    <input type="text" id="type" value="FullTime/PartTime" />
-
-                    <label for="resturant">Resturant</label>
-                    <input type="text" id="resturant" />
-
-                    <button type="submit">Submit</button>
-                </form>
+                <?php include 'fetch_data.php'; ?>
             </div>
         
             <div class="right-div">
