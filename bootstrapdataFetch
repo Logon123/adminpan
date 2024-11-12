@@ -1,4 +1,3 @@
-
 <!-- inside the body tag code -->
 <p id="description">This is a Bootstrap example.</p>
         <button id="retrieveData" class="btn btn-primary">Retrieve Data</button>
