@@ -20,8 +20,8 @@
     <script src="https://unpkg.com/browse/read-excel-file@5.8.6/bundle/read-excel-file.min.js"></script>
     <style>
     table { width: 100%; border-collapse: collapse;  }
-    th, td { border: 1px solid black;  padding: 10px; text-align: left;    }
-    th {  background-color: #f2f2f2;     }
+    th, td { border: 1px solid black;  padding: 10px; text-align: left;  }
+    th {  background-color: blue; color:white     }
     .gr { background-color: green;      }
     .bl { background-color: blue;  color: white;    }
     .yel { background-color: yellow;     }
@@ -171,16 +171,16 @@
             </div>
             <div id="output" class="mt-3"></div>
             
-            <table id="records">
-                <thead>
+            <table id="records" style="background-color: #a31414;">
+                <!-- <thead>
                     <tr>
                         <th>ID</th>
                         <th>ItemName</th>
                         <th>Total No.</th>
                     </tr>
-                </thead>
+                </thead> -->
                 <tbody>
-                    <!-- Sample records will be inserted here -->
+                <?php include 'fetchs_datas.php'; ?> <!-- Sample records will be inserted here -->
                 </tbody>
             </table>
         </div>
@@ -210,7 +210,7 @@
         
  // Sample Data retrieve from Jquery Code
  
-$(document).ready(function() {
+/* $(document).ready(function() {
     // Sample records to display
     const sampleRecords = [
         { id: 1, name: "Electronics", description: "85.", className: "gr"},
@@ -229,7 +229,7 @@ $(document).ready(function() {
         `);
     });
 });
-
+ */
 // add button code
 document.getElementById('addNewItemBtn').addEventListener('click', function() {
     alert('Add New Item button clicked');

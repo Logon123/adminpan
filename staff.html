@@ -117,43 +117,44 @@
         <div class="settings-container">
             <div class="left-div">
                 <h3 class="material-icons" style="color: blue; font-size: 34px; margin-top: 0px;">manage_accounts</h3>&nbsp;<b style="font-size: 26px; color: blue;">Employee Details</b>
-                <form id="profile-form">
+                
+                <form id="profile-form" action="insert_employee.php" method="post">
                     <label for="name">First Name</label>
-                    <input type="text" id="name" value="Yogesh " />
-
+                    <input type="text" name="first_name" id="name" value="Yogesh" />
+                
                     <label for="name">Last Name</label>
-                    <input type="text" id="name" value=" Kumar" />
-
+                    <input type="text" name="last_name" id="name" value="Kumar" />
+                
                     <label for="email">Email</label>
-                    <input type="email" id="email" value="info@example.com" />
-        
+                    <input type="email" name="email" id="email" value="info@example.com" />
+                
                     <label for="password">Phone Number</label>
-                    <input type="password" id="password" value="********" />
-        
+                    <input type="text" name="phone_number" id="password" value="1234567890" />
+                
                     <label for="designate">Designation</label>
-                    <input type="text" id="designate" value="Designation" />
-
+                    <input type="text" name="designation" id="designate" value="Designation" />
+                
                     <label for="type">Type</label>
-                    <input type="text" id="type" value="FullTime/PartTime" />
-
-                    <label for="resturant">Resturant</label>
-                    <input type="text" id="resturant" />
-
+                    <input type="text" name="types" id="types" value="FullTime" />
+                
+                    <label for="resturant">Restaurant</label>
+                    <input type="text" name="restaurant" id="restaurant" />
+                
                     <button type="submit">Submit</button>
                 </form>
             </div>
         
             <div class="right-div">
                 <h3 class="material-icons" style="color: blue; font-size: 34px; margin-top: 0px;">restaurant</h3>&nbsp;<b style="font-size: 26px; color: blue;">Food Details</b>
-                <form id="company-form">
+                <form id="company-form" action="insert_food.php" method="post">
                     <label for="foodno">Item No:</label>
-                    <input type="text" id="foodno" value="no" />
+                    <input type="text" id="foodno" value="no" name="fodno" />
         
                     <label for="foodname">Food Name:</label>
-                    <input type="text" id="foodname" />
+                    <input type="text" id="foodname" name="fodname"/>
         
                     <label for="Categories">Categories</label>
-                    <select id="Categories">
+                    <select id="Categories" name="category">
                         <option value="veg">Veg</option>
                         <option value="nonveg">Non-Veg</option>
                         <option value="fastfood">Fast Food</option>
@@ -163,16 +164,16 @@
                     </select>
                             
                     <label for="foodprice">Food Price</label>
-                    <input type="text" id="foodprice" />
+                    <input type="text" id="foodprice" name="fodprice" />
         
                     <label for="table">Table No</label>
-                    <input type="text" id="table" />
+                    <input type="text" id="table" name="tableno"/>
 
                     <label for="unit">Unit of Measurement</label>
-                    <input type="text" id="unit" value="e.g., kg, lbs, each"/>
+                    <input type="text" id="unit" name="unit" value="e.g., kg, lbs, each"/>
         
                     <label for="payment">Payment Method:</label>
-                    <select id="payment">
+                    <select id="payment" name="paym">
                         <option value="cash">Cash</option>
                         <option value="Card">Card</option>
                         <option value="other">Other</option>

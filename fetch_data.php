@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch employee details
-$employee_query = "SELECT first_name, last_name, email, phone_number, designation FROM employees"; 
+$employee_query = "SELECT first_name, last_name, email, phone_number, designation, chef_image FROM employees"; 
 $employee_result = $conn->query($employee_query);
 $employees = [];
 
@@ -46,47 +46,29 @@ $conn->close();
 </head>
 <body>
     <div class="employee-details">
-        <h3>Employee Details</h3>
-        <table>
-            <tr>
+        <h3 style="color:blue; font-size: 20px; text-align:center; border-style: solid; border-color: #92a2b1; border-radius:20px;">Employee Details retrieve from Database</h3>
+    <table style="border-style: solid; border-color: #52fab8;">
+        <tr style="color:blue; border-radius:20px; font-size:13px">
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
                 <th>Designation</th>
-            </tr>
-            <?php foreach ($employees as $employee): ?>
-                <tr>
-                    <td><?php echo htmlspecialchars($employee['first_name']); ?></td>
-                    <td><?php echo htmlspecialchars($employee['last_name']); ?></td>
-                    <td><?php echo htmlspecialchars($employee['email']); ?></td>
-                    <td><?php echo htmlspecialchars($employee['phone_number']); ?></td>
-                    <td><?php echo htmlspecialchars($employee['designation']); ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
-    </div>
+                <!-- <th>Image</th> -->
+        </tr>
+    <?php foreach ($employees as $employee): ?>
+        <tr>
+            <td><?php echo htmlspecialchars($employee['first_name']); ?></td>
+            <td><?php echo htmlspecialchars($employee['last_name']); ?></td>
+            <td><?php echo htmlspecialchars($employee['email']); ?></td>
+            <td><?php echo htmlspecialchars($employee['phone_number']); ?></td>
+            <td><?php echo htmlspecialchars($employee['designation']); ?></td>
+            <!-- <td><img src="<?php echo htmlspecialchars($employee['chef_image']); ?>" alt="<?php echo htmlspecialchars($employee['first_name'] ); ?>" style="width:50px; height:auto;">
+            </td> -->
+        </tr>
+    <?php endforeach; ?>
+</table>    </div>
 
-    <div class="food-details">
-        <h3>Food Details</h3>
-        <table>
-            <tr>
-                <th>Item No</th>
-                <th>Food Name</th>
-                <th>Category</th>
-                <th>Food Price</th>
-                <th>Table No</th>
-            </tr>
-            <?php foreach ($foods as $food): ?>
-                <tr>
-                    <td><?php echo htmlspecialchars($food['item_no']); ?></td>
-                    <td><?php echo htmlspecialchars($food['food_name']); ?></td>
-                    <td><?php echo htmlspecialchars($food['category']); ?></td>
-                    <td><?php echo htmlspecialchars($food['food_price']); ?></td>
-                    <td><?php echo htmlspecialchars($food['table_no']); ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
-    </div>
+    
 </body>
 </html>

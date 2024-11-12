@@ -107,6 +107,7 @@
             </div>
         </div>
         <!-- Div Right End-->
+
     </div>
 
     <!-- https://www.youtube.com/watch?v=_MdlBXSN7tA    Excel File Fetch Data--> 
@@ -116,17 +117,109 @@
         <div class="settings-container">
             <div class="left-div">
                 <h3 class="material-icons" style="color: blue; font-size: 34px; margin-top: 0px;">manage_accounts</h3>&nbsp;<b style="font-size: 26px; color: blue;">Employee Details</b>
-                <?php include 'fetch_data.php'; ?>
+                
+                <form id="profile-form" action="submit.php" method="post">
+                    <label for="name">First Name</label>
+                    <input type="text" name="first_name" id="name" value="Yogesh" require />
+                
+                    <label for="name">Last Name</label>
+                    <input type="text" name="last_name" id="name" value="Kumar" require/>
+                
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" value="info@example.com" require />
+                
+                    <label for="password">Phone Number</label>
+                    <input type="text" name="phone_number" id="password" value="1234567890"  require/>
+                
+                    <label for="designate">Designation</label>
+                    <input type="text" name="designation" id="designate" value="Designation" />
+                
+                    <label for="type">Type</label>
+                    <input type="text" name="type" id="type" value="FullTime" />
+                
+                    <label for="resturant">Restaurant</label>
+                    <input type="text" name="restaurant" id="restaurant" />
+                
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         
             <div class="right-div">
                 <h3 class="material-icons" style="color: blue; font-size: 34px; margin-top: 0px;">restaurant</h3>&nbsp;<b style="font-size: 26px; color: blue;">Food Details</b>
-                <?php include 'fetchs_datas.php'; ?>
+                <form id="company-form">
+                    <label for="foodno">Item No:</label>
+                    <input type="text" id="foodno" value="no" />
+        
+                    <label for="foodname">Food Name:</label>
+                    <input type="text" id="foodname" />
+        
+                    <label for="Categories">Categories</label>
+                    <select id="Categories">
+                        <option value="veg">Veg</option>
+                        <option value="nonveg">Non-Veg</option>
+                        <option value="fastfood">Fast Food</option>
+                        <option value="desserts">Desserts</option>
+                        <option value="desserts">Beverages</option>
+                        <!-- Add more countries as needed -->
+                    </select>
+                            
+                    <label for="foodprice">Food Price</label>
+                    <input type="text" id="foodprice" />
+        
+                    <label for="table">Table No</label>
+                    <input type="text" id="table" />
+
+                    <label for="unit">Unit of Measurement</label>
+                    <input type="text" id="unit" value="e.g., kg, lbs, each"/>
+        
+                    <label for="payment">Payment Method:</label>
+                    <select id="payment">
+                        <option value="cash">Cash</option>
+                        <option value="Card">Card</option>
+                        <option value="other">Other</option>
+                    </select>
+        
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         </div>
+        
+
     
     </div>
     
+    <?php
+        /* error_reporting(E_ALL);
+        ini_set('display_errors', 1); */
+
+        include 'db.php'; // Include your database connection file
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Collect and sanitize form data
+            $first_name = htmlspecialchars($_POST['first_name']);
+            $last_name = htmlspecialchars($_POST['last_name']);
+            $email = htmlspecialchars($_POST['email']);
+            $phone_number = htmlspecialchars($_POST['phone_number']);
+            $designation = htmlspecialchars($_POST['designation']);
+            $types = htmlspecialchars($_POST['types']);
+            $restaurant = htmlspecialchars($_POST['restaurant']);
+
+            // Prepare and bind the SQL statement
+            $stmt = $conn->prepare("INSERT INTO employees (first_name, last_name, email, phone_number, designation, types, restaurant) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssss", $first_name, $last_name, $email, $phone_number, $designation, $types, $restaurant);
+
+            // Execute the statement
+            if ($stmt->execute()) {
+                echo "New record created successfully";
+            } else {
+                echo "Error: " . $stmt->error; // This will help you see what went wrong
+            }
+
+            // Close the statement and connection
+            $stmt->close();
+            $conn->close();
+        }
+?>
     <script>
         // Dropdown toggle function
         function toggleDropdown() {
@@ -157,6 +250,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
+        
 </body>
 </html>
 
