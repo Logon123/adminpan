@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost"; // or your server name
-$username = "apanel"; // replace with your database username
-$password = "password"; // replace with your database password
-$dbname = "adminpanel"; // replace with your database name
+$servername = "localhost"; 
+$username = "apanel"; 
+$password = "password"; 
+$dbname = "adminpanel"; 
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
