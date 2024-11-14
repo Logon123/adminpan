@@ -3,7 +3,6 @@
         <button id="retrieveData" class="btn btn-primary">Retrieve Data</button>
         <div id="output" style="margin-top: 20px;"></div>
 
-
         <!-- inside the script code -->
 <script>
         // Excel Data Fetch via Excel Files
