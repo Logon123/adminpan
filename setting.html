@@ -28,8 +28,17 @@
         .gr{background-color:green;} .bl{background-color:blue; color: white;} .yel{background-color:yellow;}
         #chart {max-width: 800px; margin: 35px auto; }
         #records tbody tr {   height: auto; /* Ensure row height is auto */    }
+        input::placeholder {
+            color: #888;  /* Placeholder text color */
+            font-style: italic;
+        }
+
+        input:focus::placeholder{
+            color: transparent;  /* Hide placeholder when the input is focused */
+        }
     </style>
-    </head>
+    
+</head>
 <body>
     <div class="container">
         <!-- Aside Section-->
@@ -65,7 +74,7 @@
                     <span class="material-icons">sell</span>
                     <span class="text">Sale</span>
                 </a>
-                <a href="item.html">
+                <a href="item.php">
                     <span class="material-icons">receipt_long</span>
                     <span class="text">Items</span>
                 </a>
@@ -120,16 +129,16 @@
                 <h3 class="material-icons" style="color: blue; font-size: 34px; margin-top: 0px;">admin_panel_settings</h3><b style="font-size: 26px; color: blue;"> Profile Settings</b>
                 <form id="profile-form">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" value="Yogesh Kumar" />
+                    <input type="text" id="name" placeholder="Yogesh Kumar" />
         
                     <label for="email">Email:</label>
-                    <input type="email" id="email" value="yogesh@example.com" />
+                    <input type="email" id="email" placeholder="yogesh@example.com" />
         
                     <label for="password">Password:</label>
-                    <input type="password" id="password" />
+                    <input type="password" id="password" placeholder="********"/>
         
                     <label for="email">Alternate Email:</label>
-                    <input type="email" id="email" value="support@example.com" />
+                    <input type="email" id="email" placeholder="support@example.com" />
 
                 </form>
             </div>
@@ -138,19 +147,19 @@
                 <h3 class="material-icons" style="color: blue; font-size: 34px; margin-top: -05px; margin-left: 0px !important;">perm_media</h3>&nbsp;<b style="font-size: 26px; color: blue;">Social Media</b>
                 <form id="company-form">
                     <label for="facebook">Facebook:</label>
-                    <input type="text" class="form-control" id="facebook" value="www.facebook.com">
+                    <input type="text" class="form-control" id="facebook" placeholder="www.facebook.com">
         
                     <label for="twitter">Twitter:</label>
-                    <input type="text" class="form-control" id="twitter" value="www.twitter.com">
+                    <input type="text" class="form-control" id="twitter" placeholder="www.twitter.com">
         
                     <label for="google">Google +:</label>
-                    <input type="text" class="form-control" id="google" value="www.google.com">
+                    <input type="text" class="form-control" id="google" placeholder="www.google.com">
         
                     <label for="instagram">Instagram:</label>
-                    <input type="text" class="form-control" id="instagram" value="www.instagram.com">
+                    <input type="text" class="form-control" id="instagram" placeholder="www.instagram.com">
         
                     <label for="youtube">You Tube:</label>
-                    <input type="text" class="form-control" id="youtube" value="www.youtube.com">
+                    <input type="text" class="form-control" id="youtube" placeholder="www.youtube.com">
         
                     <button type="submit">Update</button>
                 </form>

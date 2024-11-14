@@ -64,7 +64,7 @@
                     <span class="material-icons">sell</span>
                     <span class="text">Sale</span>
                 </a>
-                <a href="item.html">
+                <a href="item.php">
                     <span class="material-icons">receipt_long</span>
                     <span class="text">Items</span>
                 </a>
@@ -120,25 +120,25 @@
                 
                 <form id="profile-form" action="insert_employee.php" method="post">
                     <label for="name">First Name</label>
-                    <input type="text" name="first_name" id="name" value="Yogesh" />
+                    <input type="text" name="first_name" id="name" placeholder="Yogesh" />
                 
                     <label for="name">Last Name</label>
-                    <input type="text" name="last_name" id="name" value="Kumar" />
+                    <input type="text" name="last_name" id="name" placeholder="Kumar" />
                 
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" value="info@example.com" />
+                    <input type="email" name="email" id="email" placeholder="info@example.com" />
                 
                     <label for="password">Phone Number</label>
-                    <input type="text" name="phone_number" id="password" value="1234567890" />
+                    <input type="text" name="phone_number" id="password" placeholder="1234567890" />
                 
                     <label for="designate">Designation</label>
-                    <input type="text" name="designation" id="designate" value="Designation" />
+                    <input type="text" name="designation" id="designate" placeholder="Designation" />
                 
                     <label for="type">Type</label>
-                    <input type="text" name="types" id="types" value="FullTime" />
+                    <input type="text" name="types" id="types" placeholder="FullTime/ PartTime" />
                 
                     <label for="resturant">Restaurant</label>
-                    <input type="text" name="restaurant" id="restaurant" />
+                    <input type="text" name="restaurant" id="restaurant" placeholder="Resturant"/>
                 
                     <button type="submit">Submit</button>
                 </form>
@@ -148,13 +148,13 @@
                 <h3 class="material-icons" style="color: blue; font-size: 34px; margin-top: 0px;">restaurant</h3>&nbsp;<b style="font-size: 26px; color: blue;">Food Details</b>
                 <form id="company-form" action="insert_food.php" method="post">
                     <label for="foodno">Item No:</label>
-                    <input type="text" id="foodno" value="no" name="fodno" />
+                    <input type="text" id="foodno" name="fodno" placeholder="food Item No" />
         
                     <label for="foodname">Food Name:</label>
-                    <input type="text" id="foodname" name="fodname"/>
+                    <input type="text" id="foodname" name="fodname" placeholder="Food Name"/>
         
                     <label for="Categories">Categories</label>
-                    <select id="Categories" name="category">
+                    <select id="Categories" name="category" placeholder="Category">
                         <option value="veg">Veg</option>
                         <option value="nonveg">Non-Veg</option>
                         <option value="fastfood">Fast Food</option>
@@ -164,13 +164,13 @@
                     </select>
                             
                     <label for="foodprice">Food Price</label>
-                    <input type="text" id="foodprice" name="fodprice" />
+                    <input type="text" id="foodprice" name="fodprice" placeholder="Price" />
         
                     <label for="table">Table No</label>
-                    <input type="text" id="table" name="tableno"/>
+                    <input type="text" id="table" name="tableno" placeholder="table no"/>
 
                     <label for="unit">Unit of Measurement</label>
-                    <input type="text" id="unit" name="unit" value="e.g., kg, lbs, each"/>
+                    <input type="text" id="unit" name="unit" placeholder="e.g., kg, lbs, each"/>
         
                     <label for="payment">Payment Method:</label>
                     <select id="payment" name="paym">

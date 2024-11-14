@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="shortcut icon" href="./img/admn-.png"  type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel Login</title>
+    <style>
+        /* Base Styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #d9d1d1;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .login-container {
+            text-align: center;
+            width: 100%;
+            max-width: 300px;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #1e1e1e;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            font-family: 'Times New Roman';
+            word-spacing: 5px;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 18px;
+            text-transform: uppercase;
+            font-family: 'Times New Roman';
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+            font-size: 14px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .submit-button {
+            width: 70%;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            background-color: blue;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 20px;
+            }
+            h2 {
+                font-size: 16px;
+            }
+            input[type="text"], input[type="password"] {
+                font-size: 14px;
+                padding: 8px;
+            }
+            .submit-button {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Admin Panel</h1>
+        <h2>Sign In</h2>
+        <form action="index.html" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="submit-button">Sign In</button>
+        </form>
+    </div>
+</body>
+</html>

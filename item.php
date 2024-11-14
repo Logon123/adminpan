@@ -26,22 +26,26 @@
     .bl { background-color: blue;  color: white;    }
     .yel { background-color: yellow;     }
     .container2 {
-        /* max-width: 60%;  */
+        max-width: 100%; 
         overflow-x: auto;
         height: 400px; /* Set a fixed height for the table container */
         margin: 0 auto;
         padding: 10px;
         border: 1px solid #ddd; /* Optional styling */
         background-color: #f9f9f9;
-        max-width: max-content !important;
+        /* max-width: max-content !important; */
     }
+    .recents_ord {
+    width: 100%;  /* Default width for larger screens */
+}
     /* .recents_ord{
       width: 100%;  
     } */
     #records {
-        width: 90%;
-        table-layout: fixed;
-        margin-left: 20px;
+        width: 100%;
+        table-layout: auto;
+        border-collapse: collapse;
+        word-wrap: break-word;
     }
     #output {
         margin-bottom: 20px;
@@ -55,7 +59,7 @@
     .btn {
         padding: 10px 20px;
         font-size: 16px;
-        background-color: #4CAF50; /* Green background */
+        background-color: blue; /* Green background */
         color: white;
         border: 1px dotted blue;
         text-align: center;
@@ -63,7 +67,7 @@
         cursor: pointer;
         transition: background-color 0.3s ease;
     }
-    .btn:hover {         background-color: #45a049; /* Darker green on hover */    }
+    .btn:hover {         background-color: #11979d;     }
     .btn:focus {         outline: none;     }
     /* Mobile responsive styles */
     @media (max-width: 768px) {
@@ -75,10 +79,50 @@
             .div-right {    padding-left: 20px;   }
         }
     @media (max-width: 480px) {
-            #table { width: 70%;}
+            #table { width: 50%;}
             .sidebar1 { padding-top: 10px;         }
             .button-container {  flex-direction: column; gap: 5px;   }
-            .btn {    width: 55%;  padding: 10px;  font-size: 11px; }
+            .btn {    width:55%;  padding: 10px;  font-size: 11px; }
+            #records {
+                font-size: 12px; /* Make text smaller */
+                overflow-x: auto;
+                     }
+            th, td {
+                padding: 8px; /* Reduce padding */
+                font-size: 12px; /* Reduce font size further */
+    }
+            .recents_ord{ width:100% !important; margin: 0 auto;}
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 8px;
+            text-align: left;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover, .close:focus {
+            color: #000;
+            cursor: pointer;
         }
     </style>
     
@@ -89,7 +133,7 @@
         <aside>
             <div class="top">
                 <div class="logo">
-                    <h2><span class="inf"><img src="img/logos-.png" height="80" width="150"></span></h2>
+                    <h2><span class="inf"><a href="index.html"><img src="img/logos-.png" height="80" width="150"></a></span></h2>
                 </div>
                 <div class="toggle-button">
                     <span class="material-icons">menu</span>
@@ -118,7 +162,7 @@
                     <span class="material-icons">sell</span>
                     <span class="text">Sale</span>
                 </a>
-                <a href="item.html">
+                <a href="item.php">
                     <span class="material-icons">receipt_long</span>
                     <span class="text">Items</span>
                 </a>
@@ -129,6 +173,10 @@
                 <a href="team.html">
                     <span class="material-icons">groups</span>
                     <span class="text">Team</span>
+                </a>
+                <a href="staff.html">
+                    <span class="material-icons">diversity_2</span>
+                    <span class="text">Staff</span>
                 </a>
                 <a href="#">
                     <span class="material-icons">settings</span>
@@ -158,6 +206,43 @@
         </div>
         <!-- Div Right End-->
 
+    </div>
+
+<!-- Add Item Modal HTML structure -->
+<div id="addItemModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addItemModal')">&times;</span>
+            <h2>Add New Food Item</h2>
+            <form id="addItemForm">
+                <label for="itemName">Name:</label>
+                <input type="text" id="itemName" name="itemName" required><br><br>
+
+                <label for="itemPrice">Price:</label>
+                <input type="number" id="itemPrice" name="itemPrice" required><br><br>
+
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Section Modal HTML structure -->
+    <div id="addSectionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addSectionModal')">&times;</span>
+            <h2 style="color:blue">Add New Section</h2>
+            <form id="addSectionForm">
+                <label for="sectionName">Section Name:</label>
+                <input type="text" id="sectionName" name="sectionName" required><br><br>
+
+                <label for="sectionType">Category:</label>
+                <input type="text" id="sectionType1" name="sectionType1" required><br><br>
+
+                <!-- <label for="sectionType2">Type 2:</label>
+                <input type="text" id="sectionType2" name="sectionType2"><br><br> -->
+
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
     </div>
 
     <!-- https://www.youtube.com/watch?v=_MdlBXSN7tA    Excel File Fetch Data--> 
@@ -230,14 +315,56 @@
     });
 });
  */
+
+ // JavaScript to handle modal open and close for Add Item
+ document.getElementById('addNewItemBtn').addEventListener('click', function() {
+            document.getElementById('addItemModal').style.display = 'block';
+        });
+
+        // JavaScript to handle modal open and close for Add Section
+        document.getElementById('addSectionBtn').addEventListener('click', function() {
+            document.getElementById('addSectionModal').style.display = 'block';
+        });
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const addItemModal = document.getElementById('addItemModal');
+            const addSectionModal = document.getElementById('addSectionModal');
+
+            if (event.target === addItemModal) {
+                addItemModal.style.display = 'none';
+            }
+            if (event.target === addSectionModal) {
+                addSectionModal.style.display = 'none';
+            }
+        }
+
+        // Form submit actions
+        document.getElementById('addItemForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('New item added!');
+            closeModal('addItemModal');
+        });
+
+        document.getElementById('addSectionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('New section added!');
+            closeModal('addSectionModal');
+        });
+
+
 // add button code
 document.getElementById('addNewItemBtn').addEventListener('click', function() {
-    alert('Add New Item button clicked');
+    // alert('Add New Item button clicked');
     // Add your functionality for adding a new item here
 });
 
 document.getElementById('addSectionBtn').addEventListener('click', function() {
-    alert('Add Section button clicked');
+    // alert('Add Section button clicked');
     // Add your functionality for adding a new section here
 });
 
