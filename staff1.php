@@ -27,8 +27,7 @@
         #chart {max-width: 800px; margin: 35px auto; }
         #records tbody tr {   height: auto; /* Ensure row height is auto */    }
     </style>
-    
-</head>
+    </head>
 <body>
     <div class="container">
         <!-- Aside Section-->

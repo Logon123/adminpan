@@ -34,7 +34,7 @@
         border: 1px solid #ddd; /* Optional styling */
         background-color: #f9f9f9;
         /* max-width: max-content !important; */
-    }
+    } 
     .recents_ord {
     width: 100%;  /* Default width for larger screens */
 }
@@ -125,7 +125,6 @@
             cursor: pointer;
         }
     </style>
-    
 </head>
 <body>
     <div class="container">

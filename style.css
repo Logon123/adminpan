@@ -570,6 +570,17 @@ main .insight>div{
     justify-content: space-between;
 }
 
+.sales-column1 {
+    flex: 1; /* Adjusts the columns to take equal space */
+    /* padding: 20px;  */
+    text-align: center; /* Centers the text */
+    background-color: #f9f9f9; /* Optional: adds a background color */
+    border-radius: 5px; /* Optional: adds rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow */
+    /* gap: 20px;  */
+    justify-content: space-between;
+}
+
 .columns-sm-1 {
     flex: 1 1 calc(25% - 20px); /* Default column size for larger screens */
     background-color: #f9f9f9;
@@ -847,4 +858,21 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+.total-earning {
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(53, 51, 51, 0.1); /* Subtle shadow */
+    margin-bottom: 20px; /* Spacing below the section */
+}
+.recently-placed-orders {
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(68, 67, 67, 0.1); /* Subtle shadow */
+}
+thead.th-dark {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
 }

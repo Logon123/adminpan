@@ -12,7 +12,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 // Prepare and bind
 $stmt = $conn->prepare("INSERT INTO food_items (item_no, food_name, category, food_price, table_no) VALUES ( ?, ?, ?, ?, ?)");
 $stmt->bind_param("sssss", $item_no, $foodname, $category, $food_price, $table_no);

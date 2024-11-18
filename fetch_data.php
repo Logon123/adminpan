@@ -4,11 +4,11 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 include 'db.php';
+
 // Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 // Fetch employee details
 $employee_query = "SELECT first_name, last_name, email, phone_number, designation, chef_image FROM employees"; 
 $employee_result = $conn->query($employee_query);
