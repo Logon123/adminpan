@@ -429,7 +429,7 @@ color: var(--clr-warnig);
         margin-left:02px;
     }
     .typ td {
-        padding: 2px !important; 
+        padding-right: 20px !important; 
             font-size: 12px;
             }
 
@@ -487,6 +487,7 @@ color: var(--clr-warnig);
         margin-left:0px !important;
         text-align: left!important;
             }
+        
     .last{
         padding: 0px !important;
     }
