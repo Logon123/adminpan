@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title> 
+    <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./img/admin_favicon-.png"  type="image/x-icon" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -108,7 +108,6 @@
         <!-- Div Right End-->
 
     </div>
-
     <!-- https://www.youtube.com/watch?v=_MdlBXSN7tA    Excel File Fetch Data--> 
     <div class="space" emoji_food_beverage>Staff</div>
     <div class="container2 col-lg-12">
