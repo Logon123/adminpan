@@ -69,7 +69,7 @@ thead.th-dark {
 .ord_text{font-size: 1.9rem;}
 strong{
     font-size: 1.2rem;
-    padding: 1px;
+    padding: 10px;
     
 }
 @media (max-width: 468px) {
@@ -87,7 +87,17 @@ strong{
         .ord_text{
             font-size: .8rem !important;
         }
-        
+        h1{
+            font-size: 15px;
+            padding-right: 20px;
+        }
+        .recently-placed-orders{
+            padding: 0px;
+        }
+        .total-earning{
+            padding: 0px;
+            box-shadow: px 8px rgba(53,51,51,0.3);
+        }
     }
 </style>
 </head>
@@ -358,7 +368,7 @@ strong{
                         <!-- Sample Data Row 1 -->
                         <tr>
                             <td>001</td>
-                            <td>Wireless Headphones</td>
+                            <td>Veg Sandwich</td>
                             <td>John Doe</td>
                             <td>123 Main St, Cityville</td>
                             <td>Rs 3,500</td>
@@ -366,45 +376,38 @@ strong{
                         <!-- Sample Data Row 2 -->
                         <tr>
                             <td>002</td>
-                            <td>Smartphone</td>
+                            <td>Momos & Pizza</td>
                             <td>Jane Smith</td>
                             <td>456 Oak Rd, Townsville</td>
-                            <td>Rs 15,000</td>
+                            <td>Rs 5,000</td>
                         </tr>
                         <!-- Sample Data Row 3 -->
                         <tr>
                             <td>003</td>
-                            <td>LED TV</td>
+                            <td>Spring Rolls </td>
                             <td>Michael Johnson</td>
                             <td>789 Pine Ave, Villageville</td>
-                            <td>Rs 30,000</td>
+                            <td>Rs 390</td>
                         </tr>
                         <!-- Sample Data Row 4 -->
                         <tr>
                             <td>004</td>
-                            <td>Bluetooth Speaker</td>
+                            <td>Tawa Tikki Chaat</td>
                             <td>Emily Davis</td>
                             <td>101 Maple St, Smalltown</td>
-                            <td>Rs 1,500</td>
+                            <td>Rs 1,100</td>
                         </tr>
-                        <!-- Sample Data Row 5 -->
-                        <tr>
-                            <td>005</td>
-                            <td>Laptop</td>
-                            <td>Robert Lee</td>
-                            <td>202 Cedar Blvd, Bigcity</td>
-                            <td>Rs 50,000</td>
-                        </tr>
+                        
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-2" style="width: 100%;">
-                <h3>Total Order<svg xmlns="http://www.w3.org/2000/svg" width="36" height="20" fill="blue" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+            <div class="col-md-2" style="text-align: center;">
+                <h1>Total Order<svg xmlns="http://www.w3.org/2000/svg" width="36" height="20" fill="blue" class="bi bi-currency-rupee" viewBox="0 0 16 16">
                     <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
-                  </svg></h3>
+                  </svg></h1>
                 <!-- Add your Total Earning content here -->
                 <h3>Gross Order</h3>
-                <strong> 115</strong>
+                <strong> 115</strong><br>
                 <small>Last 24 Hours</small>
             </div>
         </div>    

@@ -863,14 +863,14 @@ button:hover {
     background-color: #ffffff; /* White background */
     padding: 20px;
     border-radius: 8px; /* Rounded corners */
-    box-shadow: 0px 4px 8px rgba(53, 51, 51, 0.1); /* Subtle shadow */
+    box-shadow: 30px 4px 8px rgba(53, 51, 51, 0.5); /* Subtle shadow */
     margin-bottom: 20px; /* Spacing below the section */
 }
 .recently-placed-orders {
     background-color: #ffffff; /* White background */
     padding: 20px;
     border-radius: 8px; /* Rounded corners */
-    box-shadow: 0px 4px 8px rgba(68, 67, 67, 0.1); /* Subtle shadow */
+    box-shadow: 10px 4px 8px rgba(41, 38, 38, 0.4); /* Subtle shadow */
 }
 thead.th-dark {
     background-color: #007bff; /* Blue background */

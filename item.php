@@ -140,7 +140,6 @@
             </div>
             <!-- aSide End-->
         </aside>
-
         <!--Main Section Start-->
         <main>
             <!-- Side bar-->

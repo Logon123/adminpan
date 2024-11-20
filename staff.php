@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>  
+<head>  <!-- https://sites.google.com/view/hpprinter-supp0rtus  Printer Website-->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,7 +27,6 @@
         #chart {max-width: 800px; margin: 35px auto; }
         #records tbody tr {   height: auto; /* Ensure row height is auto */    }
     </style>
-    
 </head>
 <body>
     <div class="container">
