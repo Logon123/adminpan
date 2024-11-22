@@ -21,7 +21,6 @@ $foodname = $_POST['fodname'];
 $category = $_POST['category'];
 $food_price = $_POST['fodprice'];
 $table_no = $_POST['tableno'];
-
 if ($stmt->execute()) {
     sleep(3);
     echo "New record created successfully";

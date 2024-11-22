@@ -40,13 +40,13 @@
 }
     /* .recents_ord{
       width: 100%;  
-    } */
+    } */ 
     #records {
         width: 100%;
         table-layout: auto;
         border-collapse: collapse;
         word-wrap: break-word;
-    }
+        }
     #output {
         margin-bottom: 20px;
     }

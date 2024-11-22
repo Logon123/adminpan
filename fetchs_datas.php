@@ -8,7 +8,7 @@ include 'db.php';
 // Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-}
+    }
 // Fetch food details
 $food_query = "SELECT item_no, food_name, category, food_price, table_no FROM food_items"; 
 $food_result = $conn->query($food_query);
@@ -19,7 +19,6 @@ if ($food_result && $food_result->num_rows > 0) {
         $foods[] = $row;
     }
 }
-
 // Close the database connection
 $conn->close();
 ?>

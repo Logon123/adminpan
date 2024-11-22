@@ -11,7 +11,6 @@ Lineicons Free Web Font Crafted by Lineicons.com Team Version: 4.0
        url('../fonts/lineicons.ttf') format('truetype'),
        url('../fonts/lineicons.svg') format('svg');
 }
-
 /* base class */
 .lni {
   display: inline-block;

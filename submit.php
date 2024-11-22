@@ -1,4 +1,4 @@
 <?php
-header("Location: staff.php"); // Redirect to the main page
+header("Location: staff.php"); // Redirect to the MainPage
 exit();
 ?>  
